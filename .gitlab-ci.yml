@@ -1,0 +1,35 @@
+image: "mhart/alpine-node:latest"
+
+# 2 Stage Build
+stages:
+  - build
+  - deploy
+
+# Set Variables
+variables:
+  AWS_DEFAULT_REGION: us-east-1
+  BUCKET_NAME: flickrawr
+  FRONT_END_URL: http://flickrawr.s3-website-us-east-1.amazonaws.com
+
+buildReact:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - build/
+
+deployToS3:
+  image: "python:latest"
+  stage: deploy
+  dependencies:
+    - buildReact
+  before_script:
+    - pip install awscli
+  script:
+    - ls
+    - aws s3 cp --cache-control no-cache --expires 0 build s3://${BUCKET_NAME}/ --recursive
+  environment:
+    name: ${CI_COMMIT_REF_SLUG}
+    url: ${FRONT_END_URL}
