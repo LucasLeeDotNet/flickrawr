@@ -9,7 +9,7 @@ stages:
 variables:
   AWS_DEFAULT_REGION: us-east-1
   BUCKET_NAME: flickrawr
-  FRONT_END_URL: http://flickrawr.s3-website-us-east-1.amazonaws.com
+  FRONT_END_URL: https://flickrawr.typescript.studio
 
 buildReact:
   stage: build
