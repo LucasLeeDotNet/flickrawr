@@ -2,9 +2,10 @@
   "name": "flickrawr",
   "version": "1.0.0",
   "description": "Flickr, but louder, Rawr!",
-  "main": "index.js",
+  "main": "index.component.tsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --env.ENVIRONMENT=development --content-base public/ --mode development --watch --watch-poll"
   },
   "repository": {
     "type": "git",
@@ -17,9 +18,22 @@
     "rawr"
   ],
   "author": "Lucas Lee",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://gitlab.com/LucasLee/flickrawr/issues"
   },
-  "homepage": "https://gitlab.com/LucasLee/flickrawr#readme"
+  "homepage": "https://gitlab.com/LucasLee/flickrawr#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
 }
