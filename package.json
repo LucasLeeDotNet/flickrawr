@@ -5,6 +5,7 @@
   "main": "index.component.tsx",
   "scripts": {
     "build": "webpack --mode production",
+    "buildToDocs": "webpack --mode production && cp -r build docs",
     "start": "webpack-dev-server --env.ENVIRONMENT=development --content-base public/ --mode development --watch --watch-poll"
   },
   "repository": {
