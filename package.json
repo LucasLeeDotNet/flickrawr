@@ -1,0 +1,25 @@
+{
+  "name": "flickrawr",
+  "version": "1.0.0",
+  "description": "Flickr, but louder, Rawr!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/LucasLee/flickrawr.git"
+  },
+  "keywords": [
+    "flickr",
+    "photo",
+    "gallery",
+    "rawr"
+  ],
+  "author": "Lucas Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/LucasLee/flickrawr/issues"
+  },
+  "homepage": "https://gitlab.com/LucasLee/flickrawr#readme"
+}
