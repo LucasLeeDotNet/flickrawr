@@ -2,10 +2,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App/App.component";
+import { StoreProvider } from "./context/StoreContexst";
 
 // Component
 
 ReactDOM.render(
-  <App/>,
+  (
+    <StoreProvider>
+      <App />
+    </StoreProvider>
+  ),
   document.getElementById("root"),
 );

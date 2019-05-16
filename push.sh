@@ -1,1 +1,1 @@
-npm run deploy && git push gitlab && git push github
+npm run deploy:github-pages && git push gitlab && git push github
