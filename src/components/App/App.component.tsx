@@ -4,13 +4,14 @@ import React from "react";
 // Components
 import Navheader from "../core/Navheader.component";
 import Notification from "../core/Notification.component";
+import Searchbar from "../Searchbar/Searchbar.component";
 
 const App = () => {
   return (
     <div>
       <Navheader/>
       <div>
-        Flickrawr with typescript!
+        <Searchbar/>
       </div>
       <Notification/>
     </div>

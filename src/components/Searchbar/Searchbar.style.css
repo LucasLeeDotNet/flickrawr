@@ -1,0 +1,12 @@
+.Searchbar{ 
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.Searchbar-input{ 
+  flex:1;
+}
+.Searchbar-paper{ 
+  display: flex;
+}
