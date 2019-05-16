@@ -6,8 +6,8 @@
   "scripts": {
     "build": "suitcss ./src/index.css public/style.css --minify && webpack --mode production",
     "deploy": "gh-pages -d build",
-    "start": "webpack-dev-server --env.ENVIRONMENT=development --content-base public/ --mode development --watch --watch-poll",
-    "suitup": "suitcss ./src/index.css public/style.css --watch"
+    "start": "webpack-dev-server --env.ENVIRONMENT=development --content-base build/ --mode development --watch --watch-poll",
+    "suitup": "suitcss ./src/index.css build/style.css --watch"
   },
   "repository": {
     "type": "git",
