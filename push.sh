@@ -1,1 +1,1 @@
-git push origin && git push github
+npm run deploy && git push gitlab && git push github
