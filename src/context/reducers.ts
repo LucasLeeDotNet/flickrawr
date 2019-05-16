@@ -8,12 +8,15 @@ import IStateModel from "../models/IState.model";
 // store list of typeOptions
 export const typeOptions = {
   HIDE_NOTIFICATION: "HIDE_NOTIFICATION",
+  IS_LOADING: "IS_LOADING",
+  IS_NOT_LOADING: "IS_NOT_LOADING",
   SHOW_NOTIFICATION: "SHOW_NOTIFICATION",
 };
 
 const reducers = ( state: IStateModel = initialState, action: IActionObjectModel ): IStateModel => {
 
   switch ( action.type ) {
+
     /**
      * Hide the generic notification
      */
@@ -26,9 +29,30 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
         },
       };
 
-      /**
-       * Show the generic notification
-       */
+
+    /**
+     * Set app state to is loading
+     */
+    case typeOptions.IS_LOADING:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
+
+    /**
+     * Set app state to is not loading
+     */
+    case typeOptions.IS_NOT_LOADING:
+      return {
+        ...state,
+        isLoading: false,
+      };
+
+
+    /**
+     * Show the generic notification
+     */
     case typeOptions.SHOW_NOTIFICATION:
       return {
         ...state,
