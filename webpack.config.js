@@ -1,5 +1,5 @@
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-
 
 module.exports = {
   entry: "./src/index.component.tsx",
@@ -11,7 +11,7 @@ module.exports = {
   resolve: {
       extensions: [".ts", ".tsx", ".js", ".json"]
   },
-  
+
   module: {
     rules: [{
         exclude: /node_modules/,
@@ -27,6 +27,9 @@ module.exports = {
   },
 
   plugins: [
+    new CopyPlugin([
+      { from: 'public', to: '', ignore: [ 'index.html' ] },
+    ]),
     new HtmlWebPackPlugin({
       template: "./public/index.html",
       filename: "./index.html",
