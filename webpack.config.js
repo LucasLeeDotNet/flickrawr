@@ -1,4 +1,4 @@
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -28,7 +28,7 @@ module.exports = {
 
   plugins: [
     new CopyPlugin([
-      { from: 'public', to: '', ignore: [ 'index.html' ] },
+      { from: "public", to: "", ignore: [ "index.html" ] },
     ]),
     new HtmlWebPackPlugin({
       template: "./public/index.html",
