@@ -10,13 +10,13 @@ import CloseIcon from "@material-ui/icons/Close";
 
 // Model
 import { typeOptions } from "../../context/reducers";
-import SnackbarModel from "../../models/Snackbar.model";
+import NotificationModel from "../../models/Notification.model";
 
 
-const SnackbarComponent = () => {
+const Notification = () => {
     const { state, dispatch } = useContext( StoreContext );
-    const snackbarState: SnackbarModel = state.snackbar;
-    const { open, hideDuration, message } = snackbarState;
+    const NotificaitonState: NotificationModel = state.notification;
+    const { open, hideDuration, message } = NotificaitonState;
 
 
     /**
@@ -24,7 +24,7 @@ const SnackbarComponent = () => {
      */
     const handleClose = (): void => {
       dispatch({
-        type: typeOptions.HIDE_SNACKBAR,
+        type: typeOptions.HIDE_NOTIFICATION,
       });
     };
 
@@ -58,4 +58,4 @@ const SnackbarComponent = () => {
     );
 };
 
-export default SnackbarComponent;
+export default Notification;

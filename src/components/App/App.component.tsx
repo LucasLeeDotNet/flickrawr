@@ -1,11 +1,18 @@
+// React
 import React from "react";
-import SnackbarComponent from "../core/Snackbar.component";
+
+// Components
+import Navheader from "../core/Navheader.component";
+import Notification from "../core/Notification.component";
 
 const App = () => {
   return (
     <div>
-      Flickrawr with typescript!
-      <SnackbarComponent/>
+      <Navheader/>
+      <div>
+        Flickrawr with typescript!
+      </div>
+      <Notification/>
     </div>
   );
 };

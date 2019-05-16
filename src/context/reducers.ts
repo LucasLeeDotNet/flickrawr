@@ -7,35 +7,35 @@ import IStateModel from "../models/IState.model";
 
 // store list of typeOptions
 export const typeOptions = {
-  HIDE_SNACKBAR: "HIDE_SNACKBAR",
-  SHOW_SNACKBAR: "SHOW_SNACKBAR",
+  HIDE_NOTIFICATION: "HIDE_NOTIFICATION",
+  SHOW_NOTIFICATION: "SHOW_NOTIFICATION",
 };
 
 const reducers = ( state: IStateModel = initialState, action: IActionObjectModel ): IStateModel => {
 
   switch ( action.type ) {
     /**
-     * Hide the generic snackbar
+     * Hide the generic notification
      */
-    case typeOptions.HIDE_SNACKBAR:
+    case typeOptions.HIDE_NOTIFICATION:
       return {
         ...state,
-        snackbar: {
-          ...state.snackbar,
+        notification: {
+          ...state.notification,
           open: false,
         },
       };
 
       /**
-       * Show the generic snackbar
+       * Show the generic notification
        */
-    case typeOptions.SHOW_SNACKBAR:
+    case typeOptions.SHOW_NOTIFICATION:
       return {
         ...state,
-        snackbar: {
-          ...state.snackbar,
-          hideDuration: action.hideDuration || state.snackbar.hideDuration,
-          message: action.message || state.snackbar.message,
+        notification: {
+          ...state.notification,
+          hideDuration: action.hideDuration || state.notification.hideDuration,
+          message: action.message || state.notification.message,
           open: true,
         },
       };
