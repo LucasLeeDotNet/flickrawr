@@ -1,12 +1,14 @@
-.Searchbar{ 
-  padding: 1rem;
+.Searchbar {
+  align-items: stretch;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  padding: 1rem;
 }
-.Searchbar-input{ 
-  flex:1;
+
+.Searchbar-input {
+  flex: 1;
 }
-.Searchbar-paper{ 
+
+.Searchbar-paper {
   display: flex;
 }
