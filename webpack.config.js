@@ -42,5 +42,15 @@ module.exports = {
         useShortDoctype: true
       }
     })
-  ]
+  ],
+
+  devServer: {
+    proxy: {
+      '/services/rest': {
+        changeOrigin: true,
+        target: 'https://api.flickr.com/',
+        secure: false
+      }
+    }
+  }
 };

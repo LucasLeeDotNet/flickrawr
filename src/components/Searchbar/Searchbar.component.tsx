@@ -8,14 +8,29 @@ import { Divider, IconButton, InputBase, Paper } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 
-const Searchbar = () => {
+export interface ISearchbarModel {
+  onChange: ( searchText: string ) => void;
+  text: string;
+}
+
+const Searchbar = ( props: ISearchbarModel ) => {
+  const { onChange, text } = props;
+
+
+  /**
+   * Handler for input value change
+   */
+  const handleInputChanged = ( event: React.ChangeEvent<HTMLInputElement>) => {
+    onChange( event.target.value );
+  };
+
   return(
     <div className="Searchbar">
       <Paper className="Searchbar-paper" elevation={1}>
         <IconButton aria-label="Menu">
           <MenuIcon />
         </IconButton>
-        <InputBase className="Searchbar-input" placeholder="Search Flickr" />
+        <InputBase value={text} onChange={handleInputChanged} className="Searchbar-input" placeholder="Search Flickr" />
         <Divider/>
         <IconButton className="Searhbar-searchButton" aria-label="Search">
           <SearchIcon/>

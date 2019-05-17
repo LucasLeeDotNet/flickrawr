@@ -15,8 +15,14 @@ import Searchbar from "../Searchbar/Searchbar.component";
 
 const App = () => {
 
-  const { state } = useContext( StoreContext );
+  const { actions, state } = useContext( StoreContext );
   const isLoading: boolean = state.isLoading;
+  const text: string = state.search.text;
+
+
+  const handleSearchbarInputChange = ( searchText: string ) => {
+    actions.searchFlickr( searchText );
+  };
 
   return (
     <div>
@@ -26,7 +32,7 @@ const App = () => {
         undefined
       }
       <div>
-        <Searchbar/>
+        <Searchbar text={text} onChange={handleSearchbarInputChange}/>
       </div>
       <Notification/>
     </div>

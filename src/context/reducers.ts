@@ -11,11 +11,22 @@ export const typeOptions = {
   IS_LOADING: "IS_LOADING",
   IS_NOT_LOADING: "IS_NOT_LOADING",
   SHOW_NOTIFICATION: "SHOW_NOTIFICATION",
+  UPDATE_SEARCH: "UPDATE_SEARCH",
 };
 
 const reducers = ( state: IStateModel = initialState, action: IActionObjectModel ): IStateModel => {
 
   switch ( action.type ) {
+
+    case typeOptions.UPDATE_SEARCH:
+      return {
+        ...state,
+        search: {
+          ...state.search,
+          text: action.text || state.search.text,
+        },
+      };
+
 
     /**
      * Hide the generic notification
