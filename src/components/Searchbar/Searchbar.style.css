@@ -2,6 +2,7 @@
   align-items: stretch;
   display: flex;
   flex-direction: column;
+  min-width: 900px;
   padding: 1rem;
 }
 

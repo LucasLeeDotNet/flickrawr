@@ -2,7 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App/App.component";
-import { StoreProvider } from "./context/StoreContexst";
+import { StoreProvider } from "./context/StoreContext";
 
 // Component
 

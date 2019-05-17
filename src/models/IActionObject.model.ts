@@ -6,4 +6,5 @@ export default interface IActionObjectModel {
   hideDuration?: number;
   message?: string;
   text?: string;
+  result?: [];
 }

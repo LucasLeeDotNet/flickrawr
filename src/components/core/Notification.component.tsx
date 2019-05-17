@@ -2,7 +2,7 @@
 import React, { useContext } from "react";
 
 // Context
-import { StoreContext } from "../../context/StoreContexst";
+import { StoreContext } from "../../context/StoreContext";
 
 // Material UI
 import { IconButton, Snackbar } from "@material-ui/core";

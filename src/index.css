@@ -1,4 +1,6 @@
 @import "suitcss";
+@import "./components/App/App.style.css";
+@import "./components/ImagesDisplay/ImageDisplay.style.css";
 @import "./components/Searchbar/Searchbar.style.css";
 @custom-media --sm-viewport (min-width: 320px) and (max-width: 640px);
 @custom-media --md-viewport (min-width: 640px) and (max-width: 960px);
