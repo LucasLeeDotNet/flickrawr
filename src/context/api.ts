@@ -22,7 +22,7 @@ export const searchFlickrPhoto = (
   lastResult: IFlickrPhotoModel[],
   actionPassThrough: IActionObjectModel,
 ) => {
-  dispatch( { type: typeOptions.IS_LOADING } );
+  dispatch( { ...actionPassThrough, type: typeOptions.IS_LOADING } );
   // tslint:disable-next-line:max-line-length
   const url = `${FLICKR_URL}?method=flickr.photos.search&api_key=${FLICKR_API_KEY}&text=${searchText}&format=json&nojsoncallback=1&per_page=${PAGE_SIZE}&page=${page}&safe_search=1`;
   return fetch( url, {
@@ -33,7 +33,7 @@ export const searchFlickrPhoto = (
   .then( ( json ) => {
     setTimeout( () => {
     const photos: IFlickrPhotoModel[] = [ ...lastResult, ...json.photos.photo ];
-    dispatch( { ...actionPassThrough, type: typeOptions.FETCHED_PHOTOS, result: photos } );
+    dispatch( { ...actionPassThrough, type: typeOptions.FETCHED_PHOTOS, result: photos, pages: json.photos.pages } );
     }, 500);
   } )
   .catch( () => {

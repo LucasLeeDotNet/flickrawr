@@ -23,3 +23,8 @@
   font-weight: 500;
   margin-left: 0.5rem;
 }
+
+.NavHeader-toolbar {
+
+  display: flex;
+}

@@ -1,5 +1,5 @@
 // React
-import React, { RefObject, UIEvent, useContext } from "react";
+import React, { RefObject, UIEvent, useContext, useState } from "react";
 
 // Material UI
 import { CircularProgress } from "@material-ui/core";
@@ -15,24 +15,30 @@ import Searchbar from "../Searchbar/Searchbar.component";
 
 // Models
 import IFlickrPhotoModel from "../../models/IFlickrPhotoModel";
-let bottomRef: any;
-declare var document: any;
+
+declare const document: any;
+
+
 const App = () => {
 
   const { actions, state } = useContext( StoreContext );
   const isLoading: boolean = state.isLoading;
-  const isAnimating: boolean = state.isAnimating;
   const text: string = state.search.text;
   const result: IFlickrPhotoModel[] = state.search.result;
 
+  // Local State
+  const [ bottomRef, setBottomRef ] = useState();
+  const [ showHeaderSearch, setShowHeaderSearch ] = useState( false );
+  const [ searchRef, setSearchRef ] = useState();
+
   const handleSearchbarInputChange = ( searchText: string ) => {
-    // tslint:disable-next-line:no-console
     if ( searchText ) { actions.searchFlickr( searchText, false ); }
   };
 
-
-  const checkIsHidden = ( ) => {
+  const checkIsVisible = () => {
     const bounding = bottomRef.getBoundingClientRect();
+    const searchBounds = searchRef.getBoundingClientRect();
+
     if (
       bounding.top >= 0 &&
       bounding.left >= 0 &&
@@ -40,26 +46,34 @@ const App = () => {
       bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) ) {
         actions.searchFlickr(state.search.text, false );
       }
-  };
 
-  const getref = ( ref: any) => {
-    bottomRef = ref;
+    if (
+      searchBounds.top >= 0 &&
+      searchBounds.left >= 0 &&
+      searchBounds.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+      searchBounds.bottom <= (window.innerHeight || document.documentElement.clientHeight) ) {
+        setShowHeaderSearch( false );
+    } else {
+        setShowHeaderSearch( true );
+    }
   };
 
   return (
     <div className="App">
-      <Navheader/>
+      <Navheader showSearch={showHeaderSearch} onSearch={handleSearchbarInputChange}/>
       {isLoading ?
-        <div className="App-content-loadingOverlay"/>
+        <div className="App-content-loadingOverlay">
+          <CircularProgress className="App-progress"/>
+        </div>
       :
       undefined}
-      <div className={"App-content" + (isLoading ? " App-content--loading" : "")} onScroll={checkIsHidden} >
-        <Searchbar text={text} onChange={handleSearchbarInputChange}/>
+      <div className={"App-content" + (isLoading ? " App-content--loading" : "")} onScroll={checkIsVisible} >
+        <Searchbar text={text} onChange={handleSearchbarInputChange} sendSearchRef={setSearchRef}/>
         {
-          state.search.result.length === 0 ?
+          result.length === 0 ?
           undefined
           :
-          <ImagesDisplay sendRef={getref}/>
+          <ImagesDisplay sendRef={setBottomRef}/>
         }
       </div>
       <Notification/>

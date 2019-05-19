@@ -46,10 +46,12 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
     sendRef( bottomElement );
   };
 
+
   const setAnchor = (element: any) => {
     anchorElement = element;
-
   };
+
+
   return (
     <span>
       <div className="ImagesDisplay">

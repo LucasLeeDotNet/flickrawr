@@ -1,5 +1,5 @@
 // React
-import React, { useContext, useEffect, useState } from "react";
+import React, { RefObject, useContext, useEffect, useState } from "react";
 
 // State
 import { StoreContext } from "../../context/StoreContext";
@@ -16,6 +16,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import { INPUT_TIMEOUT } from "../../constant";
 
 export interface ISearchbarModel {
+  sendSearchRef?: ( ref: RefObject<any> ) => void;
+  styleSuffix?: string;
   onChange: ( searchText: string ) => void;
   text: string;
 }
@@ -28,10 +30,10 @@ let inputTimer: NodeJS.Timeout;
 
 const Searchbar = ( props: ISearchbarModel ) => {
   const { actions } = useContext( StoreContext );
-  const { text } = props;
+  const { sendSearchRef, text } = props;
   const [ searchText, updateSearchText ] = useState( text );
   const [ timerFlag, startTimer ] = useState( false );
-
+  const styleSuffix = props.styleSuffix || "";
 
   useEffect( (): void => {
     if ( timerFlag ) {
@@ -73,7 +75,7 @@ const Searchbar = ( props: ISearchbarModel ) => {
    * Handle enter key press to submit search
    */
   const handleKeyPress = ( event: React.KeyboardEvent<HTMLInputElement> ): void => {
-      if ( event.key === "Enter" ) {
+      if ( event.key === "Enter" && searchText !== "" ) {
       clearInterval( inputTimer );
       actions.searchFlickr( searchText, true );
     }
@@ -84,34 +86,50 @@ const Searchbar = ( props: ISearchbarModel ) => {
    * Handle search button click
    */
   const handleSearchButtonClick = (): void => {
+    if ( searchText !== "" ) {
       clearInterval( inputTimer );
       actions.searchFlickr( searchText, true );
+    }
+  };
+
+
+  const setSearchRef = (element: any): void => {
+    const SearchElement = element;
+    if ( typeof sendSearchRef === "function") { sendSearchRef( SearchElement ); }
   };
 
 
   return(
-    <div className="Searchbar">
-      <Paper className="Searchbar-paper" elevation={1}>
+    <div className={"Searchbar" + styleSuffix} ref={setSearchRef}>
+      <Paper className={"Searchbar-paper" + styleSuffix} elevation={1}>
         <IconButton aria-label="Menu">
           <MenuIcon />
         </IconButton>
         <InputBase
           value={searchText}
           onChange={handleInputChanged}
-          className="Searchbar-input"
+          className={"Searchbar-input" + styleSuffix}
           placeholder="rawr!"
           onKeyDown={handleKeyPress}
         />
         {
           searchText !== "" ?
-            <IconButton className="Searchbar-clearButton" onClick={handleClearButtonClick} aria-label="Clear">
+            <IconButton
+              className="Searchbar-clearButton"
+              onClick={handleClearButtonClick}
+              aria-label="Clear"
+            >
               <ClearIcon/>
             </IconButton>
             :
             undefined
         }
         <Divider/>
-        <IconButton className="Searchbar-searchButton" aria-label="Search" onClick={handleSearchButtonClick}>
+        <IconButton
+          className={"Searchbar-searchButton" + styleSuffix}
+          aria-label="Search"
+          onClick={handleSearchButtonClick}
+        >
           <SearchIcon/>
         </IconButton>
       </Paper>

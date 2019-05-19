@@ -24,3 +24,8 @@
 .App-content--loading {
   filter: blur(5px);
 }
+
+.App-progress {
+  height: 75px !important;
+  width: 75px !important;
+}

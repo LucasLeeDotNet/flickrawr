@@ -77,6 +77,12 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
       return {
         ...state,
         isLoading: true,
+        search: {
+          ...state.search,
+          history: action.history || state.search.history,
+          page: action.page || state.search.page,
+          text: action.text || state.search.text,
+        },
       };
 
 

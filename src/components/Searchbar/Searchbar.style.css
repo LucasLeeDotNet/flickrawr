@@ -27,10 +27,38 @@
   padding: 0.5rem;
 }
 
-.Searchbar .Searchbar-clearButton {
-  color: #f00;
+.Searchbar-clearButton {
+  color: #f00 !important;
 }
 
 .Searchbar-paper svg {
   font-size: 2rem;
+}
+
+/**
+ *  For Header Variant
+ */
+
+.Searchbar--forHeader {
+
+  display: flex;
+  flex: 2;
+  justify-content: flex-end;
+  margin-right: -20px;
+  padding: 5px;
+}
+
+.Searchbar-input--forHeader input {
+
+  color: rgb(0, 0, 0, 0.8);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.3em;
+  letter-spacing: 0.0075em;
+  line-height: 1.6;
+  margin-left: 1rem;
+}
+
+.Searchbar-paper--forHeader {
+
+  display: flex;
 }

@@ -27,6 +27,7 @@ deployToS3:
     - buildReact
   before_script:
     - pip install awscli
+    
   script:
     - ls
     - aws s3 cp --cache-control no-cache --expires 0 build s3://${BUCKET_NAME}/ --recursive

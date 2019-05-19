@@ -12,7 +12,7 @@ export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
    * Search Flick if is not currently loading
    */
   const searchFlickr = ( searchText: string = state.search.text, newSearchFlag: boolean = false  ): void => {
-    if ( !state.isLoading) {
+    if ( !state.isLoading && searchText !== "" ) {
       const oldHistory = state.search.history;
       const newHistory = oldHistory.includes( searchText ) ? oldHistory : [...oldHistory, searchText ];
 
