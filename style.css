@@ -5104,6 +5104,62 @@ fieldset {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: calc(100vh - 64px);
+  margin-top: 64px;
+  overflow: scroll;
+}
+
+.App-content-loadingOverlay {
+
+  -webkit-align-items: center;
+
+      -ms-flex-align: center;
+
+          align-items: center;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  background-color: rgb(255, 255, 255, 0.5);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: calc(100% - 64px);
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+}
+
+.App-content--loading {
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+}
+
+.NavHeader {
+
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+}
+
+.NavHeader-title {
+
+  color: rgb(0, 0, 0, 0.8);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.8em;
+  font-weight: bold;
+  letter-spacing: 0.0075em;
+  line-height: 1.6;
+  margin-left: 1rem;
+}
+
+.NavHeader-subtitle {
+
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
 }
 
 @-webkit-keyframes slideInUp {
@@ -5202,6 +5258,21 @@ fieldset {
   width: calc(100% - 24px);
 }
 
+.ImagesDisplay-loadingOverlay {
+
+  -webkit-backdrop-filter: blur(10px);
+
+          backdrop-filter: blur(10px);
+  background-color: rgb(0, 0, 0, 0.7);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  position: absolute;
+  width: calc(100% - 24px);
+  z-index: 9;
+}
+
 .ImagesDisplay-photoContainer {
 
   background-color: #333;
@@ -5263,6 +5334,16 @@ fieldset {
           transform: scale3d(1.2, 1.2, 1.2);
 }
 
+.ImageDisplay-title {
+
+  background: rgb(0, 0, 0, 0.5);
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  position: absolute;
+  z-index: 10;
+}
+
 .Searchbar {
   -webkit-align-items: stretch;
       -ms-flex-align: stretch;
@@ -5274,7 +5355,7 @@ fieldset {
       -ms-flex-direction: column;
           flex-direction: column;
   min-width: 900px;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .Searchbar-input {
@@ -5283,9 +5364,32 @@ fieldset {
           flex: 1;
 }
 
+.Searchbar-input input {
+
+  color: rgb(0, 0, 0, 0.8);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.8em;
+  font-weight: bold;
+  letter-spacing: 0.0075em;
+  line-height: 1.6;
+  margin-left: 1rem;
+}
+
 .Searchbar-paper {
+
   display: -webkit-flex;
+
   display: -ms-flexbox;
+
   display: flex;
+  padding: 0.5rem;
+}
+
+.Searchbar .Searchbar-clearButton{ 
+  color: #f00;
+}
+
+.Searchbar-paper svg {
+  font-size: 2rem;
 }
 
