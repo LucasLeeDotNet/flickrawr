@@ -4,7 +4,9 @@
 export default interface IActionObjectModel {
   type: string;
   hideDuration?: number;
+  history?: string[];
   message?: string;
+  page?: number;
   text?: string;
   result?: [];
 }

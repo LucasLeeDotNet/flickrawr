@@ -41,6 +41,17 @@
   width: calc(100% - 24px);
 }
 
+.ImagesDisplay-loadingOverlay {
+
+  backdrop-filter: blur(10px);
+  background-color: rgb(0, 0, 0, 0.7);
+  display: flex;
+  height: 100%;
+  position: absolute;
+  width: calc(100% - 24px);
+  z-index: 9;
+}
+
 .ImagesDisplay-photoContainer {
 
   background-color: #333;
@@ -90,4 +101,14 @@
   animation: 0.5s zoomIn ease-out;
   filter: brightness(100%);
   transform: scale3d(1.2, 1.2, 1.2);
+}
+
+.ImageDisplay-title {
+
+  background: rgb(0, 0, 0, 0.5);
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  position: absolute;
+  z-index: 10;
 }

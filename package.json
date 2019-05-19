@@ -4,8 +4,8 @@
   "description": "Flickr, but louder, Rawr!",
   "main": "index.component.tsx",
   "scripts": {
-    "build": "( suitcss ./src/index.css public/style.css --minify || true ) && webpack --mode production",
-    "build:styles": "suitcss ./src/index.css public/style.css --minify",
+    "build": "( suitcss ./src/index.css build/style.css --minify || true ) && webpack --mode production",
+    "build:styles": "suitcss ./src/index.css build/style.css --minify",
     "deploy:github-pages": "gh-pages -d build",
     "start": "webpack-dev-server --env.ENVIRONMENT=development --content-base build/ --mode development --watch --watch-poll",
     "suitup": "suitcss ./src/index.css build/style.css --watch"
@@ -53,6 +53,7 @@
     "cross-fetch": "^3.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-lazy-load-image-component": "^1.3.2",
     "typescript": "^3.4.5"
   }
 }

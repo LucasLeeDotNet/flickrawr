@@ -24,9 +24,13 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
     case typeOptions.FETCHED_PHOTOS:
       return {
         ...state,
+        isLoading: false,
         search: {
           ...state.search,
+          history: action.history || state.search.history,
+          page: action.page || state.search.page,
           result: action.result || state.search.result,
+          text: action.text || state.search.text,
         },
       };
 
@@ -36,6 +40,8 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
         ...state,
         search: {
           ...state.search,
+          history: action.history || state.search.history,
+          page: action.page || state.search.page,
           text: action.text || state.search.text,
         },
       };

@@ -2,15 +2,15 @@
 import React, { useContext } from "react";
 
 // Context
-import { StoreContext } from "../../context/StoreContext";
+import { StoreContext } from "../../../context/StoreContext";
 
 // Material UI
 import { IconButton, Snackbar } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 
 // Model
-import { typeOptions } from "../../context/reducers";
-import NotificationModel from "../../models/Notification.model";
+import { typeOptions } from "../../../context/reducers";
+import NotificationModel from "../../../models/Notification.model";
 
 
 const Notification = () => {

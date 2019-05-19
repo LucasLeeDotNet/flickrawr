@@ -12,15 +12,23 @@ import ClearIcon from "@material-ui/icons/Clear";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 
+// Constant
+import { INPUT_TIMEOUT } from "../../constant";
+
 export interface ISearchbarModel {
   onChange: ( searchText: string ) => void;
   text: string;
 }
-let inputTimer: any;
+
+/**
+ * input timeout to keep track of user inputs,
+ * after input has timed out the current search term will be submitted
+ */
+let inputTimer: NodeJS.Timeout;
 
 const Searchbar = ( props: ISearchbarModel ) => {
-  const { state, actions } = useContext( StoreContext );
-  const { onChange, text } = props;
+  const { actions } = useContext( StoreContext );
+  const { text } = props;
   const [ searchText, updateSearchText ] = useState( text );
   const [ timerFlag, startTimer ] = useState( false );
 
@@ -28,10 +36,10 @@ const Searchbar = ( props: ISearchbarModel ) => {
   useEffect( (): void => {
     if ( timerFlag ) {
       inputTimer = setInterval(() => {
-          actions.searchFlickr( searchText );
+          actions.searchFlickr( searchText, false );
           // Clear the interval after the interval has ran
           clearInterval( inputTimer );
-        }, 1000);
+        }, INPUT_TIMEOUT );
       // Switch the timerFlag off after the setTimeout has ran
       startTimer( false );
     }
@@ -61,6 +69,26 @@ const Searchbar = ( props: ISearchbarModel ) => {
   };
 
 
+  /**
+   * Handle enter key press to submit search
+   */
+  const handleKeyPress = ( event: React.KeyboardEvent<HTMLInputElement> ): void => {
+      if ( event.key === "Enter" ) {
+      clearInterval( inputTimer );
+      actions.searchFlickr( searchText, true );
+    }
+  };
+
+
+  /**
+   * Handle search button click
+   */
+  const handleSearchButtonClick = (): void => {
+      clearInterval( inputTimer );
+      actions.searchFlickr( searchText, true );
+  };
+
+
   return(
     <div className="Searchbar">
       <Paper className="Searchbar-paper" elevation={1}>
@@ -71,7 +99,8 @@ const Searchbar = ( props: ISearchbarModel ) => {
           value={searchText}
           onChange={handleInputChanged}
           className="Searchbar-input"
-          placeholder="Search Flickr"
+          placeholder="rawr!"
+          onKeyDown={handleKeyPress}
         />
         {
           searchText !== "" ?
@@ -82,7 +111,7 @@ const Searchbar = ( props: ISearchbarModel ) => {
             undefined
         }
         <Divider/>
-        <IconButton className="Searchbar-searchButton" aria-label="Search">
+        <IconButton className="Searchbar-searchButton" aria-label="Search" onClick={handleSearchButtonClick}>
           <SearchIcon/>
         </IconButton>
       </Paper>
