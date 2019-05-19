@@ -25,6 +25,12 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
       return {
         ...state,
         isLoading: false,
+        notification: {
+          ...state.notification,
+          hideDuration: action.hideDuration || state.notification.hideDuration,
+          message: action.message || state.notification.message,
+          open: !!action.message,
+        },
         search: {
           ...state.search,
           history: action.history || state.search.history,
@@ -77,6 +83,12 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
       return {
         ...state,
         isLoading: true,
+        notification: {
+          ...state.notification,
+          hideDuration: action.hideDuration || state.notification.hideDuration,
+          message: action.message || state.notification.message,
+          open: !!action.message,
+        },
         search: {
           ...state.search,
           history: action.history || state.search.history,

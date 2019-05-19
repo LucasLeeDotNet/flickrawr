@@ -1,7 +1,7 @@
 // React
 import React, { useContext } from "react";
 
-// Context
+// State
 import { StoreContext } from "../../../context/StoreContext";
 
 // Material UI
@@ -20,7 +20,7 @@ const Notification = () => {
 
 
     /**
-     * Close the generic s nackbar
+     * Close the generic snackbar
      */
     const handleClose = (): void => {
       dispatch({

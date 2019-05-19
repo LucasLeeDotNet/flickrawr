@@ -1,4 +1,4 @@
-import IFlickrPhotoModel from "./IFlickrPhotoModel";
+import IFlickrPhotoModel from "./IFlickrPhoto.model";
 
 export default class SearchModel {
   /**

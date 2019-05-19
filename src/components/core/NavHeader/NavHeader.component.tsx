@@ -6,19 +6,22 @@ import { StoreContext } from "../../../context/StoreContext";
 
 // Material
 import { AppBar, LinearProgress, Toolbar, Typography } from "@material-ui/core";
+
+// Components
 import Searchbar from "../../Searchbar/Searchbar.component";
 
+// COnstant
+import { APP_NAME, SLOGAN } from "../../../constant";
+
 export interface INavHeader {
-  onSearch: ( searchText: string ) => void;
   showSearch: boolean;
 }
 
 const NavHeader = ( props: INavHeader ) => {
-  const {state} = useContext( StoreContext );
+  const { state } = useContext( StoreContext );
+  const { showSearch } = props;
   const isLoading: boolean = state.isLoading;
-  const { onSearch, showSearch } = props;
   const text = state.search.text;
-  const handleSearchbarInputChange = onSearch;
 
   return (
     <div className="NavHeader" >
@@ -26,16 +29,28 @@ const NavHeader = ( props: INavHeader ) => {
         <Toolbar className="NavHeader-toolbar">
           <img src="./logo.png" width="100" />
           <div className="NavHeader-title">
-            {"flick{{rawr!}}"}
-            <span className="NavHeader-subtitle">flickr but louder</span>
+            {APP_NAME}
+            <span className="NavHeader-subtitle">{SLOGAN}</span>
           </div>
-         { showSearch ?
-            <Searchbar text={text} onChange={handleSearchbarInputChange} styleSuffix="--forHeader"/>
+
+          {
+            /**
+             * Only show search bar if the content searchbar is outside the viewport
+             */
+          }
+          { showSearch ?
+            <Searchbar text={text} styleSuffix="--forHeader"/>
             :
             undefined
           }
+
         </Toolbar>
       </AppBar>
+      {
+        /**
+         * Show loading progress when isLoading is set to true in the global state
+         */
+      }
       { isLoading ? <LinearProgress />
       :
         undefined

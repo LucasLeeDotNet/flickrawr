@@ -1,5 +1,5 @@
 // React
-import React, { RefObject, UIEvent, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 
 // Material UI
 import { CircularProgress } from "@material-ui/core";
@@ -14,7 +14,7 @@ import ImagesDisplay from "../ImagesDisplay/ImagesDisplay.component";
 import Searchbar from "../Searchbar/Searchbar.component";
 
 // Models
-import IFlickrPhotoModel from "../../models/IFlickrPhotoModel";
+import IFlickrPhotoModel from "../../models/IFlickrPhoto.model";
 
 declare const document: any;
 
@@ -27,56 +27,73 @@ const App = () => {
   const result: IFlickrPhotoModel[] = state.search.result;
 
   // Local State
-  const [ bottomRef, setBottomRef ] = useState();
+  const [ bottomRef, setLastImageRef ] = useState();
   const [ showHeaderSearch, setShowHeaderSearch ] = useState( false );
   const [ searchRef, setSearchRef ] = useState();
 
-  const handleSearchbarInputChange = ( searchText: string ) => {
-    if ( searchText ) { actions.searchFlickr( searchText, false ); }
-  };
 
-  const checkIsVisible = () => {
-    const bounding = bottomRef.getBoundingClientRect();
-    const searchBounds = searchRef.getBoundingClientRect();
-
-    if (
-      bounding.top >= 0 &&
-      bounding.left >= 0 &&
-      bounding.right <= (window.innerWidth || document.documentElement.clientWidth) &&
-      bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) ) {
+  /**
+   * Fires on scroll, check if certain elements within the viewport and performs an action
+   */
+  const handleVisibilityCheck = () => {
+    if ( checkIsVisible( bottomRef ) ) {
         actions.searchFlickr(state.search.text, false );
       }
 
-    if (
-      searchBounds.top >= 0 &&
-      searchBounds.left >= 0 &&
-      searchBounds.right <= (window.innerWidth || document.documentElement.clientWidth) &&
-      searchBounds.bottom <= (window.innerHeight || document.documentElement.clientHeight) ) {
+    if (checkIsVisible( searchRef ) ) {
         setShowHeaderSearch( false );
     } else {
         setShowHeaderSearch( true );
     }
   };
 
+
+  /**
+   * Helper function to check if an element is visible in the viewport
+   */
+  const checkIsVisible = ( element: HTMLElement ): boolean => {
+    const bound = element.getBoundingClientRect();
+    return bound.top >= 0 &&
+      bound.left >= 0 &&
+      bound.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+      bound.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+  };
+
+
   return (
     <div className="App">
-      <Navheader showSearch={showHeaderSearch} onSearch={handleSearchbarInputChange}/>
+      <Navheader showSearch={showHeaderSearch}/>
+
+      {
+        /**
+         * Show the loading overlay when isLoading state is true
+         */
+      }
       {isLoading ?
         <div className="App-content-loadingOverlay">
           <CircularProgress className="App-progress"/>
         </div>
       :
       undefined}
-      <div className={"App-content" + (isLoading ? " App-content--loading" : "")} onScroll={checkIsVisible} >
-        <Searchbar text={text} onChange={handleSearchbarInputChange} sendSearchRef={setSearchRef}/>
+
+      {
+        /**
+         * Apply App-content--loading class to blur content during loading phase
+         * This container is the core vertical scroll container, onScroll listener is applied here
+         */
+      }
+      <div className={"App-content" + (isLoading ? " App-content--loading" : "")} onScroll={handleVisibilityCheck} >
+        <Searchbar text={text} sendSearchRef={setSearchRef}/>
         {
           result.length === 0 ?
           undefined
           :
-          <ImagesDisplay sendRef={setBottomRef}/>
+          <ImagesDisplay sendLastImageRef={setLastImageRef}/>
         }
       </div>
-      <Notification/>
+
+       <Notification/>
+
     </div>
   );
 };

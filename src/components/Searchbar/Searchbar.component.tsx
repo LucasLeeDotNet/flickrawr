@@ -16,14 +16,13 @@ import SearchIcon from "@material-ui/icons/Search";
 import { INPUT_TIMEOUT } from "../../constant";
 
 export interface ISearchbarModel {
-  sendSearchRef?: ( ref: RefObject<any> ) => void;
+  sendSearchRef?: ( element: HTMLDivElement ) => void;
   styleSuffix?: string;
-  onChange: ( searchText: string ) => void;
   text: string;
 }
 
 /**
- * input timeout to keep track of user inputs,
+ * input timeout to auto submit inputs
  * after input has timed out the current search term will be submitted
  */
 let inputTimer: NodeJS.Timeout;
@@ -31,10 +30,17 @@ let inputTimer: NodeJS.Timeout;
 const Searchbar = ( props: ISearchbarModel ) => {
   const { actions } = useContext( StoreContext );
   const { sendSearchRef, text } = props;
-  const [ searchText, updateSearchText ] = useState( text );
-  const [ timerFlag, startTimer ] = useState( false );
   const styleSuffix = props.styleSuffix || "";
 
+  // Local State
+  const [ searchText, updateSearchText ] = useState( text );
+  const [ timerFlag, startTimer ] = useState( false );
+
+
+  /**
+   * Fire off the searchFlickr call during the useEffect handler to ensure
+   * the interval gets the latest value from searchTexdt
+   */
   useEffect( (): void => {
     if ( timerFlag ) {
       inputTimer = setInterval(() => {
@@ -58,15 +64,15 @@ const Searchbar = ( props: ISearchbarModel ) => {
 
 
   /**
-   * Handler for input value change
+   * Handler for search input value change
    */
   const handleInputChanged = ( event: React.ChangeEvent<HTMLInputElement>): void => {
     clearInterval( inputTimer );
     updateSearchText( event.target.value );
     // Set the timer flag to trigger the side effect to run the set timeout with the latest value in searchText
-    // But only text was enter in the search bar
+    // Only start timer if the value is non empty
     if ( event.target.value !== "" ) {
-    startTimer( true );
+      startTimer( true );
     }
   };
 
@@ -93,9 +99,11 @@ const Searchbar = ( props: ISearchbarModel ) => {
   };
 
 
-  const setSearchRef = (element: any): void => {
-    const SearchElement = element;
-    if ( typeof sendSearchRef === "function") { sendSearchRef( SearchElement ); }
+  /**
+   * Sends the search element reference to the parent callback
+   */
+  const setSearchRef = (element: HTMLDivElement): void => {
+    if ( typeof sendSearchRef === "function") { sendSearchRef( element ); }
   };
 
 
@@ -109,9 +117,15 @@ const Searchbar = ( props: ISearchbarModel ) => {
           value={searchText}
           onChange={handleInputChanged}
           className={"Searchbar-input" + styleSuffix}
-          placeholder="rawr!"
+          placeholder="rawrrrr!"
           onKeyDown={handleKeyPress}
         />
+
+        {
+          /**
+           * Only show the clear button when text is entered
+           */
+        }
         {
           searchText !== "" ?
             <IconButton
@@ -124,7 +138,9 @@ const Searchbar = ( props: ISearchbarModel ) => {
             :
             undefined
         }
+
         <Divider/>
+
         <IconButton
           className={"Searchbar-searchButton" + styleSuffix}
           aria-label="Search"
