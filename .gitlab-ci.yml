@@ -8,7 +8,7 @@ stages:
 # Set Variables
 variables:
   AWS_DEFAULT_REGION: us-east-1
-  BUCKET_NAME: flickrawr
+  BUCKET_NAME: flickrawr.typescript.studio
   FRONT_END_URL: https://flickrawr.typescript.studio
 
 buildReact:
