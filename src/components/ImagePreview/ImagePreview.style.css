@@ -46,9 +46,10 @@
 
 .ImagePreview-buttonContainer {
 
-  bottom: 0;
+  bottom: 10px;
+  left: auto;
   position: absolute;
-  right: 0;
+  right: auto;
   z-index: 11;
 }
 

@@ -89,7 +89,13 @@ const App = () => {
         (isLoading || imagePreviewShow ? " App-content--loading" : "")}
         onScroll={handleVisibilityCheck}
       >
-        <Searchbar text={text} sendSearchRef={setSearchRef}/>
+        {
+          !showHeaderSearch || imagePreviewShow ?
+          <Searchbar text={text} sendSearchRef={setSearchRef}/>
+          :
+          undefined
+        }
+
         {
           result.length === 0 ?
           undefined
