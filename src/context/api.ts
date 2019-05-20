@@ -1,5 +1,5 @@
 // React
-import { Dispatch } from "react";
+import { Dispatch, ReactText } from "react";
 
 // State
 import { typeOptions } from "./reducers";
@@ -27,8 +27,21 @@ export const searchFlickrPhoto = (
     message: lastResult.length > 0 ? `Loading more "${searchText}"...` : `Searching for "${searchText}"`,
     type: typeOptions.IS_LOADING,
   } );
+  const upsPackage = {
+    api_key: FLICKR_API_KEY,
+    format: "json",
+    method: "flickr.photos.search",
+    nojsoncallback: "1",
+    page,
+    per_page: PAGE_SIZE,
+    safe_search: "1",
+    text: searchText,
+  };
+
+  const convertEntriesToParam = ( item: [string, ReactText] ): string => `${item[0]}=${item[1]}`;
+  const upsPackageToParamString = Object.entries(upsPackage).map( convertEntriesToParam ).join("&");
   // tslint:disable-next-line:max-line-length
-  const url = `${FLICKR_URL}?method=flickr.photos.search&api_key=${FLICKR_API_KEY}&text=${searchText}&format=json&nojsoncallback=1&per_page=${PAGE_SIZE}&page=${page}&safe_search=1`;
+  const url = `${FLICKR_URL}?${upsPackageToParamString}`;
   return fetch( url, {
     headers: BASIC_JSON_HEADERS,
     method: "GET",
@@ -48,6 +61,6 @@ export const searchFlickrPhoto = (
     }, 500);
   } )
   .catch( () => {
-    dispatch( { type: typeOptions.IS_NOT_LOADING } );
+    dispatch( { type: typeOptions.IS_NOT_LOADING, message: `Error: Unable to retrieve images for ${searchText}` } );
   } );
 };

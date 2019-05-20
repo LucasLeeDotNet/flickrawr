@@ -115,6 +115,12 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
       return {
         ...state,
         isLoading: false,
+        notification: {
+          ...state.notification,
+          hideDuration: action.hideDuration || state.notification.hideDuration,
+          message: action.message || state.notification.message,
+          open: !!action.message,
+        },
       };
 
 
