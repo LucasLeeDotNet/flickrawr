@@ -5106,7 +5106,8 @@ fieldset {
           flex-direction: column;
   height: calc(100vh - 64px);
   margin-top: 64px;
-  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
 }
 
 .App-content-loadingOverlay {
@@ -5196,6 +5197,10 @@ fieldset {
   .NavHeader-title--showSerch {
 
     display: none;
+  }
+
+  .NavHeader-toolbar {
+    padding: 10px;
   }
 
 }
