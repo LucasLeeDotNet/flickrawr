@@ -56,7 +56,7 @@ const ImagePreview = ( ) => {
     >
       <div className="ImagePreview">
         <div className="ImagePreview-backNav" onClick={handleLoadPreviousImage}>
-          <IconButton aria-label="Delete" disabled={selectedIndex < 1}>
+          <IconButton aria-label="Delete" disabled={selectedIndex < 2}>
             <BackwardIcon />
           </IconButton>
         </div>
@@ -71,7 +71,7 @@ const ImagePreview = ( ) => {
           undefined
         }
         <div className="ImagePreview-forwardNav" onClick={handleLoadNextImage}>
-          <IconButton aria-label="Delete" disabled={selectedIndex > results.length - 1}>
+          <IconButton aria-label="Delete" disabled={selectedIndex > results.length - 2}>
             <ForwardIcon />
           </IconButton>
         </div>
