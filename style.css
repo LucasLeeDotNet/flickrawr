@@ -5485,6 +5485,7 @@ fieldset {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: 67px;
   min-width: 900px;
   padding: 2rem;
 }
@@ -5582,6 +5583,11 @@ fieldset {
     min-width: initial;
     padding: 5px;
     width: 100%;
+  }
+
+  .Searchbar--forHeader {
+
+    margin-right: 0;
   }
 
   .Searchbar-paper--forHeader {
