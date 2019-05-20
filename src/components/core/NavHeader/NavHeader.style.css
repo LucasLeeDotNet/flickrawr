@@ -28,3 +28,20 @@
 
   display: flex;
 }
+
+@media (--iphone-x-viewport) {
+
+  .NavHeader {
+
+    position: initial;
+    top: 0;
+  }
+
+  .NavHeader-subtitle,
+  .NavHeader-subtitle--showSearch,
+  .NavHeader-title--showSerch {
+
+    display: none;
+  }
+
+}

@@ -61,3 +61,27 @@
 
   display: flex;
 }
+
+@media (--iphone-x-viewport) {
+
+  .Searchbar {
+
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    min-width: initial;
+    padding: 5px;
+    width: 100%;
+  }
+
+  .Searchbar-paper--forHeader {
+
+    padding: 0 5px;
+  }
+
+  .Searchbar-paper button,
+  .Searchbar-paper--forHeader button {
+
+    padding: 0 !important;
+  }
+}
