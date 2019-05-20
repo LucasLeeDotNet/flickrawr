@@ -32,10 +32,20 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
    * Scroll to last element that was in view after a new page is lazy loaded
    */
   useEffect( (): void => {
-      if ( document.querySelector( ".App-content" ) && searchElement ) {
+    if ( document.querySelector( ".App-content" ) && searchElement ) {
       document.querySelector( ".App-content" ).scrollTo(0, searchElement.offsetTop - (window.innerHeight - 250) );
-      }
-  }, [result]);
+    }
+  }, [searchElement]);
+
+
+  /**
+   * Call the setter method for the search Element after retrieving from a ref callback
+   */
+  const handleLastImageReference = ( element: HTMLDivElement ): void => {
+    if ( element ) {
+    setSearchElement( element );
+    }
+  };
 
 
   /**
@@ -58,7 +68,7 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
                * back to their location after lazy loading a new page
                */
               <div
-                ref={result.length > PAGE_SIZE && index === result.length - PAGE_SIZE ? setSearchElement : null}
+                ref={result.length > PAGE_SIZE && index === result.length - PAGE_SIZE ? handleLastImageReference : null}
                 key={index}
                 className={index === result.length - 1 ? "ImagesDisplay-photoContainer is-zoomOut"
                 :
