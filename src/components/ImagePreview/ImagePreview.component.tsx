@@ -2,8 +2,8 @@
 import React, { useContext } from "react";
 
 // State
-import { StoreContext } from "../../context/StoreContext";
 import { typeOptions } from "../../context/reducers";
+import { StoreContext } from "../../context/StoreContext";
 
 // Material UI
 import { Drawer } from "@material-ui/core";

@@ -48,7 +48,7 @@ module.exports = {
     proxy: {
       '/services/rest': {
         changeOrigin: true,
-        target: 'https://api.flickr.com/',
+        target: 'https://flickrawr.typescript.studio',
         secure: false
       }
     }

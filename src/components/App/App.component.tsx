@@ -10,6 +10,7 @@ import { StoreContext } from "../../context/StoreContext";
 // Components
 import Navheader from "../core/NavHeader/NavHeader.component";
 import Notification from "../core/Notification/Notification.component";
+import ImagePreview from "../ImagePreview/ImagePreview.component";
 import ImagesDisplay from "../ImagesDisplay/ImagesDisplay.component";
 import Searchbar from "../Searchbar/Searchbar.component";
 
@@ -92,8 +93,8 @@ const App = () => {
         }
       </div>
 
-       <Notification/>
-
+      <Notification/>
+      <ImagePreview />
     </div>
   );
 };
