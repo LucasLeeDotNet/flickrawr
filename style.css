@@ -5358,6 +5358,93 @@ fieldset {
   z-index: 10;
 }
 
+.ImagePreview {
+
+  -webkit-align-items: center;
+
+      -ms-flex-align: center;
+
+          align-items: center;
+  background: transparent;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: calc(100vh - 70px);
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: scroll;
+}
+
+.ImagePreview-backNav,
+.ImagePreview-forwardNav {
+
+  -webkit-align-items: center;
+
+      -ms-flex-align: center;
+
+          align-items: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  width: 4rem;
+  z-index: 10;
+}
+
+.ImagePreview-backNav {
+  left: 0;
+}
+
+.ImagePreview-forwardNav {
+  right: 0;
+}
+
+.ImagePreview-drawer div[role=document] {
+  background-color: transparent;
+}
+
+.ImagePreview-drawer > div:nth-child(1) {
+  top: 65px;
+}
+
+.ImagePreview-photo {
+
+  height: auto;
+  max-width: 100%;
+  max-width: 100%;
+  width: auto;
+}
+
+.ImagePreview-buttonContainer {
+
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 11;
+}
+
+.ImagePreview-buttonContainer button,
+.ImagePreview-backNav button,
+.ImagePreview-forwardNav button {
+  color: white;
+}
+
+.ImagePreview-buttonContainer svg {
+
+  font-size: 35px;
+}
+
+.ImagePreview-backNav button svg,
+.ImagePreview-forwardNav button svg {
+
+  font-size: 50px !important;
+}
+
 .Searchbar {
   -webkit-align-items: stretch;
       -ms-flex-align: stretch;
@@ -5382,8 +5469,7 @@ fieldset {
 
   color: rgb(0, 0, 0, 0.8);
   font-family: "Courier New", Courier, monospace;
-  font-size: 1.8em;
-  font-weight: bold;
+  font-size: 1.5em;
   letter-spacing: 0.0075em;
   line-height: 1.6;
   margin-left: 1rem;
