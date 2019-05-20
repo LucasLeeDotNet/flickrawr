@@ -15,7 +15,7 @@ import ImagesDisplay from "../ImagesDisplay/ImagesDisplay.component";
 import Searchbar from "../Searchbar/Searchbar.component";
 
 // Models
-import IFlickrPhotoModel from "../../models/IFlickrPhoto.model";
+import FlickrPhotoModel from "../../models/FlickrPhoto.model";
 
 declare const document: any;
 
@@ -25,7 +25,8 @@ const App = () => {
   const { actions, state } = useContext( StoreContext );
   const isLoading: boolean = state.isLoading;
   const text: string = state.search.text;
-  const result: IFlickrPhotoModel[] = state.search.result;
+  const result: FlickrPhotoModel[] = state.search.result;
+  const imagePreviewShow: boolean = state.drawer.open;
 
   // Local State
   const [ bottomRef, setLastImageRef ] = useState();
@@ -83,7 +84,11 @@ const App = () => {
          * This container is the core vertical scroll container, onScroll listener is applied here
          */
       }
-      <div className={"App-content" + (isLoading ? " App-content--loading" : "")} onScroll={handleVisibilityCheck} >
+      <div
+        className={"App-content" +
+        (isLoading || imagePreviewShow ? " App-content--loading" : "")}
+        onScroll={handleVisibilityCheck}
+      >
         <Searchbar text={text} sendSearchRef={setSearchRef}/>
         {
           result.length === 0 ?

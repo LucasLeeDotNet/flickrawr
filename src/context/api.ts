@@ -5,8 +5,8 @@ import { Dispatch, ReactText } from "react";
 import { typeOptions } from "./reducers";
 
 // Model
+import FlickrPhotoModel from "../models/FlickrPhoto.model";
 import IActionObjectModel from "../models/IActionObject.model";
-import IFlickrPhotoModel from "../models/IFlickrPhoto.model";
 
 // Utility
 import fetch from "cross-fetch";
@@ -18,7 +18,7 @@ export const searchFlickrPhoto = (
   searchText: string,
   dispatch: Dispatch<any>,
   page: number,
-  lastResult: IFlickrPhotoModel[],
+  lastResult: FlickrPhotoModel[],
   actionPassThrough: IActionObjectModel,
 ) => {
   // Dispatch IS_LOADING action along with a notification
@@ -53,7 +53,7 @@ export const searchFlickrPhoto = (
   .then( ( response ) => response.json() )
   .then( ( json ) => {
     setTimeout( () => {
-    const photos: IFlickrPhotoModel[] = [ ...lastResult, ...json.photos.photo ];
+    const photos: FlickrPhotoModel[] = [ ...lastResult, ...json.photos.photo ];
     dispatch(
       {
           ...actionPassThrough,

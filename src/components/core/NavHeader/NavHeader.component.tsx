@@ -22,6 +22,7 @@ const NavHeader = ( props: INavHeader ) => {
   const { showSearch } = props;
   const isLoading: boolean = state.isLoading;
   const text = state.search.text;
+  const imagePreviewShow: boolean = state.drawer.open;
 
   return (
     <div className="NavHeader" >
@@ -38,7 +39,7 @@ const NavHeader = ( props: INavHeader ) => {
              * Only show search bar if the content searchbar is outside the viewport
              */
           }
-          { showSearch ?
+          { showSearch && !imagePreviewShow ?
             <Searchbar text={text} styleSuffix="--forHeader"/>
             :
             undefined

@@ -5,7 +5,7 @@ import React, { RefObject, useContext, useEffect, useState } from "react";
 import { StoreContext } from "../../context/StoreContext";
 
 // Models
-import IFlickrPhotoModel from "../../models/IFlickrPhoto.model";
+import FlickrPhotoModel from "../../models/FlickrPhoto.model";
 
 // Constant
 import { PAGE_SIZE } from "../../constant";
@@ -41,17 +41,10 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
 
   const handleImageClick = (
     event: React.MouseEvent<HTMLDivElement>,
-    image: IFlickrPhotoModel,
     index: number): void => {
     dispatch(
       {
-        children: (
-          <img
-            className="ImagesDisplay-photo"
-            alt={image.title}
-            src={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`}
-          />
-        ),
+        selectedIndex: index,
         type: typeOptions.SHOW_DRAWER,
       },
     );
@@ -77,12 +70,11 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
     sendLastImageRef( bottomElement );
   };
 
-
   return (
     <span>
       <div className="ImagesDisplay">
         {
-          result.map( ( image: IFlickrPhotoModel, index: number ) => {
+          result.map( ( image: FlickrPhotoModel, index: number ) => {
             return (
               /**
                * Add a reference to the last image that to take the user
@@ -90,7 +82,7 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
                */
               <div
                 // tslint:disable-next-line:jsx-no-lambda
-                onClick={( event: React.MouseEvent<HTMLDivElement> ) => handleImageClick(event, image, index)}
+                onClick={( event: React.MouseEvent<HTMLDivElement> ) => handleImageClick(event, index)}
                 ref={result.length > PAGE_SIZE && index === result.length - PAGE_SIZE ? handleLastImageReference : null}
                 key={index}
                 className={index === result.length - 1 ? "ImagesDisplay-photoContainer is-zoomOut"

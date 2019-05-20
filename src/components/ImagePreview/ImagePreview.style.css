@@ -1,0 +1,70 @@
+.ImagePreview {
+
+  align-items: center;
+  background: transparent;
+  display: flex;
+  height: calc(100vh - 70px);
+  justify-content: center;
+  overflow: scroll;
+}
+
+.ImagePreview-backNav,
+.ImagePreview-forwardNav {
+
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  width: 4rem;
+  z-index: 10;
+}
+
+.ImagePreview-backNav {
+  left: 0;
+}
+
+.ImagePreview-forwardNav {
+  right: 0;
+}
+
+.ImagePreview-drawer div[role=document] {
+  background-color: transparent;
+}
+
+.ImagePreview-drawer > div:nth-child(1) {
+  top: 65px;
+}
+
+.ImagePreview-photo {
+
+  height: auto;
+  max-width: 100%;
+  max-width: 100%;
+  width: auto;
+}
+
+.ImagePreview-buttonContainer {
+
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 11;
+}
+
+.ImagePreview-buttonContainer button,
+.ImagePreview-backNav button,
+.ImagePreview-forwardNav button {
+  color: white;
+}
+
+.ImagePreview-buttonContainer svg {
+
+  font-size: 35px;
+}
+
+.ImagePreview-backNav button svg,
+.ImagePreview-forwardNav button svg {
+
+  font-size: 50px !important;
+}

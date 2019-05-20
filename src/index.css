@@ -2,10 +2,12 @@
 @import "./components/App/App.style.css";
 @import "./components/core/NavHeader/NavHeader.style.css";
 @import "./components/ImagesDisplay/ImagesDisplay.style.css";
+@import "./components/ImagePreview/ImagePreview.style.css";
 @import "./components/Searchbar/Searchbar.style.css";
 @custom-media --sm-viewport (min-width: 320px) and (max-width: 640px);
 @custom-media --md-viewport (min-width: 640px) and (max-width: 960px);
 @custom-media --lg-viewport (min-width: 960px);
+@custom-media --iphone-x-viewport (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio : 3);
 
 :root {
   --Grid-gutterSize: 25px;

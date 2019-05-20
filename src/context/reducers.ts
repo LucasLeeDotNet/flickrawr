@@ -129,8 +129,8 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
         ...state,
         drawer: {
           ...state.drawer,
-          children: action.children || state.drawer.children,
           open: true,
+          selectedIndex: action.selectedIndex || ( action.selectedIndex === 0 ? 0 : state.drawer.selectedIndex ),
         },
       };
 

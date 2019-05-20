@@ -1,4 +1,4 @@
-import IFlickrPhotoModel from "./IFlickrPhoto.model";
+import FlickrPhotoModel from "./FlickrPhoto.model";
 
 export default class SearchModel {
   /**
@@ -6,6 +6,6 @@ export default class SearchModel {
    */
   public page: number = 0;
   public text: string  = "";
-  public result: IFlickrPhotoModel[] = [];
+  public result: FlickrPhotoModel[] = [];
   public history: string[] = [];
 }
