@@ -8,11 +8,13 @@ import IStateModel from "../models/IState.model";
 // store list of typeOptions
 export const typeOptions = {
   FETCHED_PHOTOS: "FETCHED_PHOTOS",
+  HIDE_DRAWER: "HIDE_DRAWER",
   HIDE_NOTIFICATION: "HIDE_NOTIFICATION",
   IS_ANIMATING: "IS_ANIMATING",
   IS_LOADING: "IS_LOADING",
   IS_NOT_ANIMATING: "IS_NOT_ANIMATING",
   IS_NOT_LOADING: "IS_NOT_LOADING",
+  SHOW_DRAWER: "SHOW_DRAWER",
   SHOW_NOTIFICATION: "SHOW_NOTIFICATION",
   UPDATE_SEARCH: "UPDATE_SEARCH",
 };
@@ -41,14 +43,12 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
       };
 
 
-    case typeOptions.UPDATE_SEARCH:
+    case typeOptions.HIDE_DRAWER:
       return {
         ...state,
-        search: {
-          ...state.search,
-          history: action.history || state.search.history,
-          page: action.page || state.search.page,
-          text: action.text || state.search.text,
+        drawer: {
+          ...state.drawer,
+          open: false,
         },
       };
 
@@ -124,6 +124,17 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
       };
 
 
+    case typeOptions.SHOW_DRAWER:
+      return {
+        ...state,
+        drawer: {
+          ...state.drawer,
+          children: action.children || state.drawer.children,
+          open: true,
+        },
+      };
+
+
     /**
      * Show the generic notification
      */
@@ -137,6 +148,19 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
           open: true,
         },
       };
+
+
+    case typeOptions.UPDATE_SEARCH:
+      return {
+        ...state,
+        search: {
+          ...state.search,
+          history: action.history || state.search.history,
+          page: action.page || state.search.page,
+          text: action.text || state.search.text,
+        },
+      };
+
 
     default: {
       return state;

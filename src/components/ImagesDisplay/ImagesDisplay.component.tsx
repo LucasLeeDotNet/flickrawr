@@ -9,6 +9,7 @@ import IFlickrPhotoModel from "../../models/IFlickrPhoto.model";
 
 // Constant
 import { PAGE_SIZE } from "../../constant";
+import { typeOptions } from "../../context/reducers";
 
 declare var document: any;
 
@@ -21,7 +22,7 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
     sendLastImageRef,
   } = props;
 
-  const { state } = useContext( StoreContext );
+  const { dispatch, state } = useContext( StoreContext );
   const { result } = state.search;
 
   // Local State
@@ -36,6 +37,25 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
       document.querySelector( ".App-content" ).scrollTo(0, searchElement.offsetTop - (window.innerHeight - 250) );
     }
   }, [searchElement]);
+
+
+  const handleImageClick = (
+    event: React.MouseEvent<HTMLDivElement>,
+    image: IFlickrPhotoModel,
+    index: number): void => {
+    dispatch(
+      {
+        children: (
+          <img
+            className="ImagesDisplay-photo"
+            alt={image.title}
+            src={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`}
+          />
+        ),
+        type: typeOptions.SHOW_DRAWER,
+      },
+    );
+  };
 
 
   /**
@@ -57,6 +77,7 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
     sendLastImageRef( bottomElement );
   };
 
+
   return (
     <span>
       <div className="ImagesDisplay">
@@ -68,6 +89,8 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
                * back to their location after lazy loading a new page
                */
               <div
+                // tslint:disable-next-line:jsx-no-lambda
+                onClick={( event: React.MouseEvent<HTMLDivElement> ) => handleImageClick(event, image, index)}
                 ref={result.length > PAGE_SIZE && index === result.length - PAGE_SIZE ? handleLastImageReference : null}
                 key={index}
                 className={index === result.length - 1 ? "ImagesDisplay-photoContainer is-zoomOut"

@@ -1,32 +1,40 @@
 // React
-import React, { useState } from "react";
+import React, { useContext } from "react";
+
+// State
+import { StoreContext } from "../../context/StoreContext";
+import { typeOptions } from "../../context/reducers";
 
 // Material UI
-
 import { Drawer } from "@material-ui/core";
 
-const ImagePreview = () => {
-  const [ openedState, setOpenedState ] = useState( false );
 
+// interface IImagePreview {
+//   children: JSX.Element;
+// }
 
-  const handleClosePreview = (): void => { 
-    setOpenedState( false );
+const ImagePreview = ( ) => {
+  const { dispatch, state } = useContext( StoreContext );
+  const open: boolean = state.drawer.open;
+  const children: JSX.Element | undefined = state.drawer.children;
+
+  const handleClosePreview = ( ): void => {
+    dispatch( { type: typeOptions.HIDE_DRAWER } );
   };
 
   return (
     <Drawer
       anchor="bottom"
-      open={openedState}
+      open={open}
       onClose={handleClosePreview}
     >
+      {children}
       <div
         tabIndex={0}
         role="button"
         onClick={handleClosePreview}
         onKeyDown={handleClosePreview}
-      >
-        {fullList}
-      </div>
+      />
     </Drawer>
   );
 };

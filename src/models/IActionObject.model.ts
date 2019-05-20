@@ -2,6 +2,7 @@
  * Model for the objects created by the actions
  */
 export default interface IActionObjectModel {
+  children?: JSX.Element;
   hideDuration?: number;
   history?: string[];
   message?: string;
