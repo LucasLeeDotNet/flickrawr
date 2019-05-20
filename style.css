@@ -5141,6 +5141,13 @@ fieldset {
   width: 75px !important;
 }
 
+@media (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio : 3) {
+
+  .App-content {
+    margin-top: 5px;
+  }
+}
+
 .NavHeader {
 
   position: fixed;
@@ -5174,6 +5181,23 @@ fieldset {
   display: -ms-flexbox;
 
   display: flex;
+}
+
+@media (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio : 3) {
+
+  .NavHeader {
+
+    position: initial;
+    top: 0;
+  }
+
+  .NavHeader-subtitle,
+  .NavHeader-subtitle--showSearch,
+  .NavHeader-title--showSerch {
+
+    display: none;
+  }
+
 }
 
 @-webkit-keyframes slideInUp {
@@ -5531,5 +5555,37 @@ fieldset {
   display: -ms-flexbox;
 
   display: flex;
+}
+
+@media (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio : 3) {
+
+  .Searchbar {
+
+    -webkit-align-items: stretch;
+
+        -ms-flex-align: stretch;
+
+            align-items: stretch;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    min-width: initial;
+    padding: 5px;
+    width: 100%;
+  }
+
+  .Searchbar-paper--forHeader {
+
+    padding: 0 5px;
+  }
+
+  .Searchbar-paper button,
+  .Searchbar-paper--forHeader button {
+
+    padding: 0 !important;
+  }
 }
 
