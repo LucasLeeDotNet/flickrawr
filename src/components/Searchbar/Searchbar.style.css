@@ -2,6 +2,7 @@
   align-items: stretch;
   display: flex;
   flex-direction: column;
+  height: 67px;
   min-width: 900px;
   padding: 2rem;
 }
@@ -73,6 +74,11 @@
     min-width: initial;
     padding: 5px;
     width: 100%;
+  }
+
+  .Searchbar--forHeader {
+
+    margin-right: 0;
   }
 
   .Searchbar-paper--forHeader {
