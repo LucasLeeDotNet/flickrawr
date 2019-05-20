@@ -44,4 +44,8 @@
     display: none;
   }
 
+  .NavHeader-toolbar {
+    padding: 10px;
+  }
+
 }
