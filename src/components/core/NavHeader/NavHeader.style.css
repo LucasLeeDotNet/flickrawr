@@ -50,3 +50,19 @@
   }
 
 }
+
+@media (--md-viewport) {
+
+  .NavHeader-subtitle--showSearch {
+
+    display: none;
+  }
+}
+
+@media (--sm-viewport) {
+
+  .NavHeader-subtitle--showSearch {
+
+    display: none;
+  }
+}

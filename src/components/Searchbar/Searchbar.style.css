@@ -2,8 +2,7 @@
   align-items: stretch;
   display: flex;
   flex-direction: column;
-  height: 67px;
-  min-width: 900px;
+  min-width: 960px;
   padding: 2rem;
 }
 
@@ -96,5 +95,21 @@
   .Searchbar-paper--forHeader button {
 
     padding: 0 !important;
+  }
+}
+
+@media (--md-viewport) {
+
+  .Searchbar {
+
+    min-width: 95vw;
+  }
+}
+
+@media (--sm-viewport) {
+
+  .Searchbar {
+
+    min-width: 95vw;
   }
 }
