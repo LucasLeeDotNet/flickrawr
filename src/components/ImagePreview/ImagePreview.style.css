@@ -47,6 +47,8 @@
 .ImagePreview-buttonContainer {
 
   bottom: 25px;
+  color: rgb(0, 0, 0, 0.8);
+  font-family: "Courier New", Courier, monospace;
   left: auto;
   position: absolute;
   right: auto;
@@ -69,4 +71,16 @@
 .ImagePreview-forwardNav button svg {
 
   font-size: 50px !important;
+}
+
+@media (--iphone-x-viewport) {
+
+  .ImagePreview-drawer > div:nth-child(1) {
+    top: 78px;
+  }
+
+  .ImagePreview {
+
+    height: calc(100vh - 80px);
+  }
 }

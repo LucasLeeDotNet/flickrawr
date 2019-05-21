@@ -99,7 +99,7 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
             );
           } )
         }
-        <div ref={setLastImageRef}/>
+        <div className="ImageDisplay-lastImage" ref={setLastImageRef}> Load More Images...</div>
       </div>
     </span>
   );
