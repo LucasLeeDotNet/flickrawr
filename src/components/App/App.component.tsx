@@ -107,7 +107,7 @@ const App = () => {
         onScroll={handleVisibilityCheck}
       > <div className="App-content-searchbarContainer">
           <Searchbar text={text} sendSearchRef={setSearchRef}/>
-          <div>
+          <div className="app-content-historyContainer">
             {
               history.map( ( item: string, index: number ) => {
                 return (

@@ -36,6 +36,16 @@
   margin: 0.5rem 0.25rem;
 }
 
+.app-content-historyContainer {
+
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.5rem; 
+  width: 100%;
+}
+
 @media (--iphone-x-viewport) {
 
   .App-content {
