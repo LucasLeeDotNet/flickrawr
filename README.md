@@ -5,7 +5,7 @@
     <h3>rawrrrr! for images</h3>
 </div>
 
-** Light weight photo gallery using the Flickr Search API, to showcase working with React hooks, AWS, gitlab CI, material UI and suitCSS **
+**Light weight photo gallery using the Flickr Search API, to showcase working with React hooks, AWS, gitlab CI, material UI and suitCS **
 
-## <a id="serve-at"></a>Try out
-:tada: :tada: [The CI is currently deploying this app at](https://flickrawr.typescript.studio) :tada: :tada:
+## <a id="serve-at"></a>Try it out
+[The CI is currently deploying this app at](https://flickrawr.typescript.studio)
