@@ -5512,7 +5512,7 @@ fieldset {
 @media (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio : 3) {
 
   .ImagePreview-drawer > div:nth-child(1) {
-    top: 78px;
+    top: 70px;
   }
 
   .ImagePreview {
