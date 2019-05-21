@@ -5763,3 +5763,73 @@ fieldset {
   }
 }
 
+.SideMenu div[role="document"] {
+
+  height: calc(100vh - 76px);
+  margin-top: 76px;
+}
+
+.SideMenu-title {
+
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+}
+
+.SideMenu-Content {
+
+  padding: 0.5rem;
+  width: 15rem;
+}
+
+.SideMenu-safeSearch {
+  width: 100%;
+}
+
+.SideMenu-buttonsContainer {
+
+  bottom: 0;
+  padding: 0.5rem;
+  position: absolute;
+  right: 0;
+}
+
+.SideMenu-buttonsContainer button {
+
+  margin-left: 0.5rem;
+}
+
+.SideMenu-saveButton {
+
+  background-color: #bbcd32 !important;
+}
+
+.SideMenu-cancelButton {
+
+  background-color: #ff0800 !important;
+  color: white !important;
+}
+
+@media (min-width: 320px) and (max-width: 750px) {
+
+  .SideMenu-Content {
+
+    width: 100vw;
+  }
+
+  .SideMenu-title {
+
+    font-size: 1.5rem;
+  }
+
+  .SideMenu div[role="document"] {
+
+    background-color: rgb(255, 255, 255, 0.7);
+  }
+
+  .SideMenu div:first-child {
+
+    background-color: initial;
+  }
+}
+
