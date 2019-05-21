@@ -76,7 +76,7 @@
 @media (--iphone-x-viewport) {
 
   .ImagePreview-drawer > div:nth-child(1) {
-    top: 78px;
+    top: 70px;
   }
 
   .ImagePreview {

@@ -22,6 +22,7 @@ const ImagePreview = ( ) => {
   const results: FlickrPhotoModel[] = state.search.result;
   const selectedIndex = state.drawer.selectedIndex;
   const image = results[ selectedIndex ];
+  const anchor = state.drawer.anchor;
 
 
   const handleClosePreview = ( ): void => {
@@ -50,7 +51,7 @@ const ImagePreview = ( ) => {
   return (
     <Drawer
       className="ImagePreview-drawer"
-      anchor="bottom"
+      anchor={anchor}
       open={open}
       onClose={handleClosePreview}
     >
