@@ -5146,14 +5146,8 @@ fieldset {
 
   .App-content {
 
-    height: calc (100vh - 76px);
+    height: calc(100vh - 76px);
     margin-top: 5px;
-  }
-
-  .App-content-searchbarContainer {
-
-    height: 67px;
-    margin-bottom: 0.5rem;
   }
 }
 
@@ -5400,7 +5394,7 @@ fieldset {
 
   .ImagesDisplay {
 
-    margin: 20px 12px 8px 16px;
+    margin: 10px 12px 8px 16px;
   }
 }
 
@@ -5600,6 +5594,7 @@ fieldset {
         -ms-flex-direction: column;
             flex-direction: column;
     height: 90px;
+    margin-top: -5px;
     min-width: initial;
     padding: 5px;
     width: 100%;
