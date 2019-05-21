@@ -131,3 +131,11 @@
     margin: 10px 12px 8px 16px;
   }
 }
+
+@media (--sm-viewport) {
+
+  .ImagesDisplay {
+
+    margin: 10px 12px 8px 16px;
+  }
+}

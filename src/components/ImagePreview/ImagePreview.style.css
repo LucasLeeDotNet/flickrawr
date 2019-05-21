@@ -84,3 +84,15 @@
     height: calc(100vh - 80px);
   }
 }
+
+@media (--sm-viewport) {
+
+  .ImagePreview-drawer > div:nth-child(1) {
+    top: 77px;
+  }
+
+  .ImagePreview {
+
+    height: calc(100vh - 80px);
+  }
+}

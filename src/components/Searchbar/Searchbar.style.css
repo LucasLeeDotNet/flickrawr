@@ -98,15 +98,42 @@
   }
 }
 
-@media (--md-viewport) {
+@media (--sm-viewport) {
 
   .Searchbar {
 
-    min-width: 95vw;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    height: 90px;
+    margin-top: -5px;
+    min-width: initial;
+    padding: 5px;
+    width: 95vw;
+  }
+
+  .Searchbar--forHeader {
+
+    margin-right: 0;
+  }
+
+  .Searchbar-paper {
+    margin: 10px;
+  }
+
+  .Searchbar-paper--forHeader {
+
+    padding: 0 5px;
+  }
+
+  .Searchbar-paper button,
+  .Searchbar-paper--forHeader button {
+
+    padding: 0 !important;
   }
 }
 
-@media (--sm-viewport) {
+@media (--md-viewport) {
 
   .Searchbar {
 

@@ -39,3 +39,11 @@
     margin-top: 5px;
   }
 }
+
+@media (--sm-viewport) {
+
+  .App-content {
+
+    margin-top: 5px;
+  }
+}

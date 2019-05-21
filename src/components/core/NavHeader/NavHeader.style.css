@@ -61,8 +61,22 @@
 
 @media (--sm-viewport) {
 
-  .NavHeader-subtitle--showSearch {
+  .NavHeader {
+
+    position: initial;
+    top: 0;
+  }
+
+  .NavHeader-subtitle,
+  .NavHeader-subtitle--showSearch,
+  .NavHeader-title--showSerch {
 
     display: none;
   }
+
+  .NavHeader-toolbar {
+    min-height: 76px !important;
+    padding: 10px;
+  }
+
 }
