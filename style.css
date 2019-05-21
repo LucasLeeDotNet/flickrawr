@@ -5145,7 +5145,15 @@ fieldset {
 @media (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio : 3) {
 
   .App-content {
+
+    height: calc (100vh - 76px);
     margin-top: 5px;
+  }
+
+  .App-content-searchbarContainer {
+
+    height: 67px;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -5200,6 +5208,7 @@ fieldset {
   }
 
   .NavHeader-toolbar {
+    min-height: 76px;
     padding: 10px;
   }
 
@@ -5387,6 +5396,14 @@ fieldset {
   z-index: 10;
 }
 
+@media (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio : 3) {
+
+  .ImagesDisplay {
+
+    margin: 16px 12px 8px 16px;
+  }
+}
+
 .ImagePreview {
 
   -webkit-align-items: center;
@@ -5458,10 +5475,12 @@ fieldset {
   z-index: 11;
 }
 
-.ImagePreview-buttonContainer button,
 .ImagePreview-backNav button,
 .ImagePreview-forwardNav button {
+
   color: white;
+  -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
+          filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
 }
 
 .ImagePreview-buttonContainer svg {
@@ -5513,8 +5532,8 @@ fieldset {
   display: -ms-flexbox;
 
   display: flex;
-  padding: 0.5rem;
   height: 67px;
+  padding: 0.5rem;
 }
 
 .Searchbar-clearButton {
@@ -5588,6 +5607,10 @@ fieldset {
   .Searchbar--forHeader {
 
     margin-right: 0;
+  }
+
+  .Searchbar-paper { 
+    margin: 10px;
   }
 
   .Searchbar-paper--forHeader {
