@@ -21,9 +21,11 @@ const SideMenu = () => {
   const opened: boolean = state.sideMenu.open;
   const search: SearchModel = state.search;
   const incomingSafeSearch: string  = state.search.safeSearch;
+  const incomingContentType: string  = state.search.contentType;
 
   // Local state
   const [ safeSearch, setSafeSearch ] = useState( incomingSafeSearch );
+  const [ contentType, setContentType ] = useState( incomingContentType );
 
   const handleHideSideMenu = (): void => {
       dispatch(
@@ -33,6 +35,9 @@ const SideMenu = () => {
     );
   };
 
+  const handleContentTypeChange = ( event: ChangeEvent<HTMLSelectElement> ): void => {
+    setContentType( event.target.value );
+  };
 
   const handleSafeSearchChange = ( event: ChangeEvent<HTMLSelectElement> ): void => {
     setSafeSearch( event.target.value );
@@ -42,6 +47,7 @@ const SideMenu = () => {
   const handleSavePreference = () => {
     actions. updatePreference( {
       ...search,
+      contentType,
       safeSearch,
     } );
   };
@@ -56,7 +62,7 @@ const SideMenu = () => {
     >
       <div className="SideMenu-Content">
         <div className="SideMenu-title">Search Preference</div>
-        <FormControl className="SideMenu-safeSearch">
+        <FormControl className="SideMenu-safeSearch SideMenu-input">
           <InputLabel htmlFor="lastUsed">Safe Search</InputLabel>
           <Select
             value={safeSearch}
@@ -65,6 +71,22 @@ const SideMenu = () => {
             <MenuItem value="1">Safe</MenuItem>
             <MenuItem value="2">Moderate</MenuItem>
             <MenuItem value="3">Restricted</MenuItem>
+          </Select>
+        </FormControl>
+
+        <FormControl className="SideMenu-contentType SideMenu-input">
+          <InputLabel htmlFor="lastUsed">Content Type</InputLabel>
+          <Select
+            value={contentType}
+            onChange={handleContentTypeChange}
+          >
+            <MenuItem value="1">For photos only</MenuItem>
+            <MenuItem value="2">For screenshots only</MenuItem>
+            <MenuItem value="3">For 'other' only</MenuItem>
+            <MenuItem value="4">For photos and screenshots</MenuItem>
+            <MenuItem value="5">For screenshots and 'other'</MenuItem>
+            <MenuItem value="6">For photos and 'other'</MenuItem>
+            <MenuItem value="7">For photos, screenshots, and 'other' (all)</MenuItem>
           </Select>
         </FormControl>
 

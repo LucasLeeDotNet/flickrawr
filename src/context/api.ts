@@ -33,6 +33,7 @@ export const searchFlickrPhoto = (
    */
   const upsPackage = {
     api_key: FLICKR_API_KEY,
+    content_type: actionPassThrough.contentType,
     format: "json",
     method: "flickr.photos.search",
     nojsoncallback: "1",

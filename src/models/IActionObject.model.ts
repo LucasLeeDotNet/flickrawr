@@ -3,6 +3,7 @@
  */
 export default interface IActionObjectModel {
   anchor?: "bottom" | "top" | "left" | "right";
+  contentType?: string;
   hideDuration?: number;
   history?: string[];
   message?: string;

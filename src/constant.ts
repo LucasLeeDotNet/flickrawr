@@ -9,4 +9,4 @@ export const BASIC_JSON_HEADERS = {
   "Accept": "application/json",
   "Content-Type": "application/json",
 };
-export const ACCEPETED_PREFERENCE_LIST = [ "safeSearch" ];
+export const ACCEPETED_PREFERENCE_LIST = [ "safeSearch", "contentType" ];

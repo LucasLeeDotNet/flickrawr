@@ -50,6 +50,7 @@ export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
       if ( state.search.text === searchText && !newSearchFlag ) {
         const nextPage = state.search.page + 1;
         searchFlickrPhoto( searchText, dispatch, nextPage, state.search.result, {
+          contentType: state.search.contentType,
           history: newHistory,
           page: nextPage,
           safeSearch: state.search.safeSearch,
@@ -60,6 +61,7 @@ export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
       // Start a new search
       } else {
         searchFlickrPhoto( searchText, dispatch, 1, [], {
+          contentType: state.search.contentType,
           history: [...oldHistory, searchText ],
           page: 1,
           safeSearch: state.search.safeSearch,

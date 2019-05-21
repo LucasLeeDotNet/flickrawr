@@ -180,6 +180,7 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
         ...state,
         search: {
           ...state.search,
+          contentType: action.contentType || state.search.contentType,
           history: action.history || state.search.history,
           page: action.page || state.search.page,
           safeSearch: action.safeSearch || state.search.safeSearch,
