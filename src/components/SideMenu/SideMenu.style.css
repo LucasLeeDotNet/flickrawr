@@ -23,7 +23,7 @@
 
 .SideMenu-buttonsContainer {
 
-  bottom: 25px;
+  bottom: 60px;
   display: flex;
   justify-content: center;
   padding: 0.5rem;
@@ -79,7 +79,6 @@
 
   .SideMenu-buttonsContainer {
 
-    bottom: 25px;
     right: unset;
     width: calc(100vw - 1rem);
   }
