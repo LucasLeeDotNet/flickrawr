@@ -5390,6 +5390,24 @@ fieldset {
   z-index: 10;
 }
 
+.ImageDisplay-lastImage {
+
+  -webkit-align-items: center;
+
+      -ms-flex-align: center;
+
+          align-items: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 2.5rem;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0.5rem;
+  width: 100%;
+}
+
 @media (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio : 3) {
 
   .ImagesDisplay {
@@ -5463,6 +5481,8 @@ fieldset {
 .ImagePreview-buttonContainer {
 
   bottom: 25px;
+  color: rgb(0, 0, 0, 0.8);
+  font-family: "Courier New", Courier, monospace;
   left: auto;
   position: absolute;
   right: auto;
@@ -5486,6 +5506,18 @@ fieldset {
 .ImagePreview-forwardNav button svg {
 
   font-size: 50px !important;
+}
+
+@media (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio : 3) {
+
+  .ImagePreview-drawer > div:nth-child(1) {
+    top: 78px;
+  }
+
+  .ImagePreview {
+
+    height: calc(100vh - 80px);
+  }
 }
 
 .Searchbar {
@@ -5606,7 +5638,6 @@ fieldset {
   }
 
   .Searchbar-paper {
-  
     margin: 10px;
   }
 
