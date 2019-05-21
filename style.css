@@ -5400,6 +5400,7 @@ fieldset {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  font-family: "Courier New", Courier, monospace;
   height: 2.5rem;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
