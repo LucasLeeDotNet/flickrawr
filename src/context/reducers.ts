@@ -178,6 +178,12 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
     case typeOptions.UPDATE_SEARCH:
       return {
         ...state,
+        notification: {
+          ...state.notification,
+          hideDuration: action.hideDuration || state.notification.hideDuration,
+          message: action.message || state.notification.message,
+          open: !!action.message,
+        },
         search: {
           ...state.search,
           contentType: action.contentType || state.search.contentType,

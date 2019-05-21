@@ -12,6 +12,19 @@ import { ACCEPETED_PREFERENCE_LIST } from "../constant";
 
 export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
 
+  const deleteHistory = ( history: string ): void => {
+    const newHistory = state.search.history.filter( (item: string): boolean => item !== history );
+    if ( state.search.history.length !== newHistory.length ) {
+      dispatch( {
+        history: newHistory,
+        message: `Removed "${history}" from history`,
+        type: typeOptions.UPDATE_SEARCH,
+      } );
+      localStorage.setItem( "historia", JSON.stringify( newHistory ));
+    }
+
+  };
+
   const updatePreference = ( preferenceObject: SearchModel ) => {
     // Create a list of entries that matches the list of accepted preference
     const acceptedPeferences = Object.entries(
@@ -33,6 +46,7 @@ export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
 
     dispatch( {
         ...preferenceObjectForDispatch,
+        message: "Updated Preference",
         type: typeOptions.UPDATE_SEARCH,
       } );
   };
@@ -44,6 +58,7 @@ export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
     if ( !state.isLoading && searchText !== "" ) {
       const oldHistory = state.search.history;
       const newHistory = oldHistory.includes( searchText ) ? oldHistory : [...oldHistory, searchText ];
+      localStorage.setItem( "historia", JSON.stringify( newHistory ));
 
       // If the searchText has not changed, load the next page for the same searchText
       if ( state.search.text === searchText && !newSearchFlag ) {
@@ -61,7 +76,7 @@ export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
       } else {
         searchFlickrPhoto( searchText, dispatch, 1, [], {
           contentType: state.search.contentType,
-          history: [...oldHistory, searchText ],
+          history: newHistory,
           page: 1,
           safeSearch: state.search.safeSearch,
           text: searchText,
@@ -80,6 +95,7 @@ export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
   };
 
   return {
+    deleteHistory,
     searchFlickr,
     updatePreference,
   };

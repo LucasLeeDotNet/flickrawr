@@ -2,7 +2,7 @@
 import React, { useContext, useState } from "react";
 
 // Material UI
-import { CircularProgress } from "@material-ui/core";
+import { Chip, CircularProgress, ListItem } from "@material-ui/core";
 
 // State
 import { StoreContext } from "../../context/StoreContext";
@@ -29,11 +29,26 @@ const App = () => {
   const result: FlickrPhotoModel[] = state.search.result;
   const imagePreviewShow: boolean = state.drawer.open;
   const showSideMenu: boolean = state.sideMenu.open;
+  const history: string[] = state.search.history;
 
   // Local State
   const [ bottomRef, setLastImageRef ] = useState();
   const [ showHeaderSearch, setShowHeaderSearch ] = useState( false );
   const [ searchRef, setSearchRef ] = useState();
+
+
+  // Remove an item from the history
+  const handleDeleteHistory = ( searchHistory: string ) => {
+    actions.deleteHistory( searchHistory );
+  };
+
+
+  /**
+   * Search the term when it is clicked in the history
+   */
+  const handleHistoryClick = ( searchTerm: string ) => {
+    actions.searchFlickr( searchTerm, true );
+  };
 
 
   /**
@@ -92,6 +107,24 @@ const App = () => {
         onScroll={handleVisibilityCheck}
       > <div className="App-content-searchbarContainer">
           <Searchbar text={text} sendSearchRef={setSearchRef}/>
+          <div>
+            {
+              history.map( ( item: string, index: number ) => {
+                return (
+                  <Chip
+                    className="App-content-history"
+                    key={index}
+                    label={item}
+                    // tslint:disable-next-line:jsx-no-lambda
+                    onDelete={() => handleDeleteHistory(item)}
+                    // tslint:disable-next-line:jsx-no-lambda
+                    onClick={() => handleHistoryClick(item)}
+                    variant="outlined"
+                  />
+                );
+              })
+            }
+          </div>
         </div>
         {
           result.length === 0 ?

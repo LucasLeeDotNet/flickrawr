@@ -18,11 +18,17 @@ const localStoragePreferneces = ACCEPETED_PREFERENCE_LIST.reduce( ( result, item
   }
 }, {} );
 
+const historyLocalStorageValue = localStorage.getItem( "historia" );
+let history = [];
+if ( typeof historyLocalStorageValue === "string") {
+  history = JSON.parse( historyLocalStorageValue );
+}
+const newSearch = new SearchModel();
 export const initialState: IStateModel = {
   drawer: new DrawerModel(),
   isAnimating: false,
   isLoading: false,
   notification: new NotificationModel(),
-  search: { ...new SearchModel(), ...localStoragePreferneces  },
+  search: { ...newSearch, ...localStoragePreferneces, history: history || newSearch.history},
   sideMenu: new SideMneuModel(),
 };
