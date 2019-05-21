@@ -872,7 +872,7 @@ fieldset {
  * Supports: 2, 4, 5, 6, 8, 10, 12 section
  */
 
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 750px) {
 
   .u-sm-afterNone {
     margin-right: 0 !important;
@@ -1000,7 +1000,7 @@ fieldset {
  * Supports: 2, 4, 5, 6, 8, 10, 12 section
  */
 
-@media (min-width: 640px) and (max-width: 960px) {
+@media (min-width: 750px) and (max-width: 960px) {
 
   .u-md-afterNone {
     margin-right: 0 !important;
@@ -1374,7 +1374,7 @@ fieldset {
  * Supports: 2, 3, 4, 5, 6, 8, 10, 12 section
  */
 
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 750px) {
 
   .u-sm-beforeNone {
     margin-left: 0 !important;
@@ -1502,7 +1502,7 @@ fieldset {
  * Supports: 2, 3, 4, 5, 6, 8, 10, 12 section
  */
 
-@media (min-width: 640px) and (max-width: 960px) {
+@media (min-width: 750px) and (max-width: 960px) {
 
   .u-md-beforeNone {
     margin-left: 0 !important;
@@ -2057,7 +2057,7 @@ fieldset {
  * Size: breakpoint 1 (small)
  */
 
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 750px) {
 
   /* Proportional widths: breakpoint 1 (small)
      ======================================================================== */
@@ -2314,7 +2314,7 @@ fieldset {
  * Size: breakpoint 2 (medium)
  */
 
-@media (min-width: 640px) and (max-width: 960px) {
+@media (min-width: 750px) and (max-width: 960px) {
 
   /* Proportional widths: breakpoint 2 (medium)
      ======================================================================== */
@@ -3342,7 +3342,7 @@ fieldset {
  * Size: breakpoint 1 (small)
  */
 
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 750px) {
 
   /* Applies to flex container
      ======================================================================== */
@@ -3781,7 +3781,7 @@ fieldset {
  * Size: breakpoint 2 (medium)
  */
 
-@media (min-width: 640px) and (max-width: 960px) {
+@media (min-width: 750px) and (max-width: 960px) {
 
   /* Applies to flex container
      ======================================================================== */
@@ -5208,6 +5208,22 @@ fieldset {
 
 }
 
+@media (min-width: 750px) and (max-width: 960px) {
+
+  .NavHeader-subtitle--showSearch {
+
+    display: none;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 750px) {
+
+  .NavHeader-subtitle--showSearch {
+
+    display: none;
+  }
+}
+
 @-webkit-keyframes slideInUp {
 
   from {
@@ -5531,8 +5547,7 @@ fieldset {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 67px;
-  min-width: 900px;
+  min-width: 960px;
   padding: 2rem;
 }
 
@@ -5651,6 +5666,22 @@ fieldset {
   .Searchbar-paper--forHeader button {
 
     padding: 0 !important;
+  }
+}
+
+@media (min-width: 750px) and (max-width: 960px) {
+
+  .Searchbar {
+
+    min-width: 95vw;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 750px) {
+
+  .Searchbar {
+
+    min-width: 95vw;
   }
 }
 
