@@ -71,6 +71,7 @@
     align-items: stretch;
     display: flex;
     flex-direction: column;
+    height: 90px;
     min-width: initial;
     padding: 5px;
     width: 100%;
@@ -81,7 +82,8 @@
     margin-right: 0;
   }
 
-  .Searchbar-paper { 
+  .Searchbar-paper {
+  
     margin: 10px;
   }
 
