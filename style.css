@@ -5765,8 +5765,8 @@ fieldset {
 
 .SideMenu div[role="document"] {
 
-  height: calc(100vh - 76px);
-  margin-top: 76px;
+  height: calc(100vh - 77px);
+  margin-top: 77px;
 }
 
 .SideMenu-title {
@@ -5797,7 +5797,8 @@ fieldset {
           justify-content: center;
   padding: 0.5rem;
   position: absolute;
-  width: calc(100vw - 1rem);
+  right: 0;
+  width: 100%;
 }
 
 .SideMenu-buttonsContainer button {
@@ -5807,12 +5808,13 @@ fieldset {
 
 .SideMenu-saveButton {
 
-  background-color: #bbcd32 !important;
+  background-color: #0063dc !important;
+  color: white !important;
 }
 
 .SideMenu-cancelButton {
 
-  background-color: #ff0800 !important;
+  background-color: #ff0084 !important;
   color: white !important;
 }
 
@@ -5842,6 +5844,13 @@ fieldset {
   .SideMenu div:first-child {
 
     background-color: initial;
+  }
+
+  .SideMenu-buttonsContainer {
+
+    bottom: 25px;
+    right: unset;
+    width: calc(100vw - 1rem);
   }
 }
 
