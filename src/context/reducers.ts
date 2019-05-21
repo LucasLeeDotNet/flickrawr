@@ -36,9 +36,10 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
         search: {
           ...state.search,
           history: action.history || state.search.history,
-          page: action.page || state.search.page,
+          page: action.page || ( action.page === 0 ? 0 : state.search.page ),
           result: action.result || state.search.result,
           text: action.text || state.search.text,
+          total: action.total || ( action.total === 0 ? 0 : state.search.total ),
         },
       };
 

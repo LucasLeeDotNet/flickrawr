@@ -54,12 +54,14 @@ export const searchFlickrPhoto = (
   .then( ( json ) => {
     setTimeout( () => {
     const photos: FlickrPhotoModel[] = [ ...lastResult, ...json.photos.photo ];
+    // tslint:disable-next-line:no-console
     dispatch(
       {
           ...actionPassThrough,
         message: lastResult.length > 0 ? `More "${searchText}" has loaded` : `Search for "${searchText}" has completed`,
         pages: json.photos.pages,
         result: photos,
+        total: json.photos.total,
         type: typeOptions.FETCHED_PHOTOS,
       } );
     }, 500);

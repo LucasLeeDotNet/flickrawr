@@ -8,4 +8,5 @@ export default class SearchModel {
   public text: string  = "";
   public result: FlickrPhotoModel[] = [];
   public history: string[] = [];
+  public total: number = 0;
 }

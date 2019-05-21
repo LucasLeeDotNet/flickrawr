@@ -10,5 +10,6 @@ export default interface IActionObjectModel {
   result?: [];
   selectedIndex?: number;
   text?: string;
+  total?: number;
   type: string;
 }

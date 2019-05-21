@@ -24,6 +24,7 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
 
   const { dispatch, state } = useContext( StoreContext );
   const { result } = state.search;
+  const total: number = state.search.total;
 
   // Local State
   const [ searchElement, setSearchElement ] = useState();
@@ -99,7 +100,12 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
             );
           } )
         }
-        <div className="ImageDisplay-lastImage" ref={setLastImageRef}> Load More Images...</div>
+        {
+          result.length >= PAGE_SIZE && result.length < total ?
+          <div className="ImageDisplay-lastImage" ref={setLastImageRef}> Load More Images...</div>
+          :
+          undefined
+        }
       </div>
     </span>
   );
