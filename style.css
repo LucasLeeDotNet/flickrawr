@@ -5151,6 +5151,14 @@ fieldset {
   }
 }
 
+@media (min-width: 320px) and (max-width: 750px) {
+
+  .App-content {
+
+    margin-top: 5px;
+  }
+}
+
 .NavHeader {
 
   position: fixed;
@@ -5218,10 +5226,24 @@ fieldset {
 
 @media (min-width: 320px) and (max-width: 750px) {
 
-  .NavHeader-subtitle--showSearch {
+  .NavHeader {
+
+    position: initial;
+    top: 0;
+  }
+
+  .NavHeader-subtitle,
+  .NavHeader-subtitle--showSearch,
+  .NavHeader-title--showSerch {
 
     display: none;
   }
+
+  .NavHeader-toolbar {
+    min-height: 76px !important;
+    padding: 10px;
+  }
+
 }
 
 @-webkit-keyframes slideInUp {
@@ -5433,6 +5455,14 @@ fieldset {
   }
 }
 
+@media (min-width: 320px) and (max-width: 750px) {
+
+  .ImagesDisplay {
+
+    margin: 10px 12px 8px 16px;
+  }
+}
+
 .ImagePreview {
 
   -webkit-align-items: center;
@@ -5529,6 +5559,18 @@ fieldset {
 
   .ImagePreview-drawer > div:nth-child(1) {
     top: 70px;
+  }
+
+  .ImagePreview {
+
+    height: calc(100vh - 80px);
+  }
+}
+
+@media (min-width: 320px) and (max-width: 750px) {
+
+  .ImagePreview-drawer > div:nth-child(1) {
+    top: 77px;
   }
 
   .ImagePreview {
@@ -5669,15 +5711,50 @@ fieldset {
   }
 }
 
-@media (min-width: 750px) and (max-width: 960px) {
+@media (min-width: 320px) and (max-width: 750px) {
 
   .Searchbar {
 
-    min-width: 95vw;
+    -webkit-align-items: stretch;
+
+        -ms-flex-align: stretch;
+
+            align-items: stretch;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 90px;
+    margin-top: -5px;
+    min-width: initial;
+    padding: 5px;
+    width: 95vw;
+  }
+
+  .Searchbar--forHeader {
+
+    margin-right: 0;
+  }
+
+  .Searchbar-paper {
+    margin: 10px;
+  }
+
+  .Searchbar-paper--forHeader {
+
+    padding: 0 5px;
+  }
+
+  .Searchbar-paper button,
+  .Searchbar-paper--forHeader button {
+
+    padding: 0 !important;
   }
 }
 
-@media (min-width: 320px) and (max-width: 750px) {
+@media (min-width: 750px) and (max-width: 960px) {
 
   .Searchbar {
 
