@@ -45,6 +45,7 @@
   }
 
   .NavHeader-toolbar {
+    min-height: 76px;
     padding: 10px;
   }
 

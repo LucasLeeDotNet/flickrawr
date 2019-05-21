@@ -6,7 +6,7 @@ import { typeOptions } from "../../context/reducers";
 import { StoreContext } from "../../context/StoreContext";
 
 // Material UI
-import { Drawer, IconButton } from "@material-ui/core";
+import { Drawer, Fab, IconButton } from "@material-ui/core";
 
 // Material Icon
 import ClearIcon from "@material-ui/icons/Clear";
@@ -56,7 +56,7 @@ const ImagePreview = ( ) => {
     >
       <div className="ImagePreview">
         <div className="ImagePreview-backNav" onClick={handleLoadPreviousImage}>
-          <IconButton aria-label="Delete" disabled={selectedIndex < 2}>
+          <IconButton aria-label="Last Image" disabled={selectedIndex < 2}>
             <BackwardIcon />
           </IconButton>
         </div>
@@ -71,15 +71,15 @@ const ImagePreview = ( ) => {
           undefined
         }
         <div className="ImagePreview-forwardNav" onClick={handleLoadNextImage}>
-          <IconButton aria-label="Delete" disabled={selectedIndex > results.length - 2}>
+          <IconButton aria-label="Next Image" disabled={selectedIndex > results.length - 2}>
             <ForwardIcon />
           </IconButton>
         </div>
 
         <div className="ImagePreview-buttonContainer">
-          <IconButton aria-label="Delete" onClick={handleClosePreview}>
+          <Fab aria-label="Close" onClick={handleClosePreview}>
             <ClearIcon />
-          </IconButton>
+          </Fab>
         </div>
       </div>
       <div

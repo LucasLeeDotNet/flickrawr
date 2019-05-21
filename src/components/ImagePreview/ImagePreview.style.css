@@ -53,10 +53,11 @@
   z-index: 11;
 }
 
-.ImagePreview-buttonContainer button,
 .ImagePreview-backNav button,
 .ImagePreview-forwardNav button {
+
   color: white;
+  filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
 }
 
 .ImagePreview-buttonContainer svg {

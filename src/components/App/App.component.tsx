@@ -88,8 +88,9 @@ const App = () => {
         className={"App-content" +
         (isLoading || imagePreviewShow ? " App-content--loading" : "")}
         onScroll={handleVisibilityCheck}
-      >
-        <Searchbar text={text} sendSearchRef={setSearchRef}/>
+      > <div className="App-content-searchbarContainer">
+          <Searchbar text={text} sendSearchRef={setSearchRef}/>
+        </div>
         {
           result.length === 0 ?
           undefined

@@ -112,3 +112,11 @@
   position: absolute;
   z-index: 10;
 }
+
+@media (--iphone-x-viewport) {
+
+  .ImagesDisplay {
+
+    margin: 16px 12px 8px 16px;
+  }
+}

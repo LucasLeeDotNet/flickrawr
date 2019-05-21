@@ -24,8 +24,8 @@
 .Searchbar-paper {
 
   display: flex;
-  padding: 0.5rem;
   height: 67px;
+  padding: 0.5rem;
 }
 
 .Searchbar-clearButton {
@@ -79,6 +79,10 @@
   .Searchbar--forHeader {
 
     margin-right: 0;
+  }
+
+  .Searchbar-paper { 
+    margin: 10px;
   }
 
   .Searchbar-paper--forHeader {
