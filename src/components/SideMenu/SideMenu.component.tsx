@@ -26,11 +26,6 @@ const SideMenu = () => {
   // Local state
   const [ safeSearch, setSafeSearch ] = useState( incomingSafeSearch );
   const [ contentType, setContentType ] = useState( incomingContentType );
-  // Leep a object to use for sending all preference
-  const savedPreference = {
-    contentType,
-    safeSearch,
-  };
 
 
   /**
@@ -65,9 +60,10 @@ const SideMenu = () => {
    * Handler to save all perfernece
    */
   const handleSavePreference = () => {
-    actions. updatePreference( {
+    actions.updatePreference( {
       ...search,
-      ...savedPreference,
+      contentType,
+      safeSearch,
     } );
   };
 

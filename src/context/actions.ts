@@ -13,7 +13,6 @@ import { ACCEPETED_PREFERENCE_LIST } from "../constant";
 export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
 
   const updatePreference = ( preferenceObject: SearchModel ) => {
-
     // Create a list of entries that matches the list of accepted preference
     const acceptedPeferences = Object.entries(
       preferenceObject ).filter( ( item ): boolean => ACCEPETED_PREFERENCE_LIST.includes( item[0] ),
@@ -30,7 +29,7 @@ export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
         ...result,
         [item[0]]: item[1],
       };
-    } );
+    }, {} );
 
     dispatch( {
         ...preferenceObjectForDispatch,
