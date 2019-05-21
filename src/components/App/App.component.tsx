@@ -38,11 +38,11 @@ const App = () => {
    * Fires on scroll, check if certain elements within the viewport and performs an action
    */
   const handleVisibilityCheck = () => {
-    if ( checkIsVisible( bottomRef ) ) {
+    if ( bottomRef && checkIsVisible( bottomRef ) ) {
         actions.searchFlickr(state.search.text, false );
       }
 
-    if (checkIsVisible( searchRef ) ) {
+    if ( searchRef && checkIsVisible( searchRef ) ) {
         setShowHeaderSearch( false );
     } else {
         setShowHeaderSearch( true );
