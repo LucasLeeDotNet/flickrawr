@@ -5142,6 +5142,11 @@ fieldset {
   width: 75px !important;
 }
 
+.App-content-history {
+
+  margin: 0.5rem 0.25rem;
+}
+
 @media (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio : 3) {
 
   .App-content {
@@ -5763,7 +5768,7 @@ fieldset {
   }
 }
 
-.SideMenu { 
+.SideMenu {
   height: 100vh;
 }
 
