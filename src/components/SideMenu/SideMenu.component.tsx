@@ -26,7 +26,16 @@ const SideMenu = () => {
   // Local state
   const [ safeSearch, setSafeSearch ] = useState( incomingSafeSearch );
   const [ contentType, setContentType ] = useState( incomingContentType );
+  // Leep a object to use for sending all preference
+  const savedPreference = {
+    contentType,
+    safeSearch,
+  };
 
+
+  /**
+   * Handler to close the side menu
+   */
   const handleHideSideMenu = (): void => {
       dispatch(
       {
@@ -35,20 +44,30 @@ const SideMenu = () => {
     );
   };
 
+
+  /**
+   * Handler to set the contentType
+   */
   const handleContentTypeChange = ( event: ChangeEvent<HTMLSelectElement> ): void => {
     setContentType( event.target.value );
   };
 
+
+  /**
+   * Handler to set safeSearch
+   */
   const handleSafeSearchChange = ( event: ChangeEvent<HTMLSelectElement> ): void => {
     setSafeSearch( event.target.value );
   };
 
 
+  /**
+   * Handler to save all perfernece
+   */
   const handleSavePreference = () => {
     actions. updatePreference( {
       ...search,
-      contentType,
-      safeSearch,
+      ...savedPreference,
     } );
   };
 
@@ -62,6 +81,13 @@ const SideMenu = () => {
     >
       <div className="SideMenu-Content">
         <div className="SideMenu-title">Search Preference</div>
+
+
+        {
+          /**
+           * Safe Search Input
+           */
+        }
         <FormControl className="SideMenu-safeSearch SideMenu-input">
           <InputLabel htmlFor="lastUsed">Safe Search</InputLabel>
           <Select
@@ -72,8 +98,14 @@ const SideMenu = () => {
             <MenuItem value="2">Moderate</MenuItem>
             <MenuItem value="3">Restricted</MenuItem>
           </Select>
-        </FormControl>
 
+
+        </FormControl>
+        {
+          /**
+           * Content Type Input
+           */
+        }
         <FormControl className="SideMenu-contentType SideMenu-input">
           <InputLabel htmlFor="lastUsed">Content Type</InputLabel>
           <Select
@@ -90,6 +122,12 @@ const SideMenu = () => {
           </Select>
         </FormControl>
 
+
+        {
+          /**
+           * Anction buttons
+           */
+        }
         <div className="SideMenu-buttonsContainer">
           <Fab className="SideMenu-saveButton" aria-label="Save" onClick={handleSavePreference}>
             <CheckIcon />

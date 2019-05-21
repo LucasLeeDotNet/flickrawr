@@ -24,7 +24,7 @@ export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
         localStorage.setItem( item[0], JSON.stringify(item[1]));
     } );
 
-    // ALso add the matching perfernece to dispatch
+    // Also add the matching perfernece to dispatch
     const preferenceObjectForDispatch = acceptedPeferences.reduce( ( result, item ) => {
       return {
         ...result,
