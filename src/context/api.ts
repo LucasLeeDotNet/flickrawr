@@ -38,11 +38,11 @@ export const searchFlickrPhoto = (
     nojsoncallback: "1",
     page,
     per_page: PAGE_SIZE,
-    safe_search: "1",
+    safe_search: actionPassThrough.safeSearch,
     text: searchText,
   };
 
-  const convertEntriesToParam = ( item: [string, ReactText] ): string => `${item[0]}=${item[1]}`;
+  const convertEntriesToParam = ( item: [string, any] ): string => `${item[0]}=${item[1]}`;
   const upsPackageToParamString = Object.entries(upsPackage).map( convertEntriesToParam ).join("&");
   const url = `${FLICKR_URL}?${upsPackageToParamString}`;
 
@@ -54,7 +54,6 @@ export const searchFlickrPhoto = (
   .then( ( json ) => {
     setTimeout( () => {
     const photos: FlickrPhotoModel[] = [ ...lastResult, ...json.photos.photo ];
-    // tslint:disable-next-line:no-console
     dispatch(
       {
           ...actionPassThrough,

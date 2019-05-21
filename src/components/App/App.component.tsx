@@ -16,6 +16,7 @@ import Searchbar from "../Searchbar/Searchbar.component";
 
 // Models
 import FlickrPhotoModel from "../../models/FlickrPhoto.model";
+import SideMenu from "../SideMenu/SideMenu.component";
 
 declare const document: any;
 
@@ -27,6 +28,7 @@ const App = () => {
   const text: string = state.search.text;
   const result: FlickrPhotoModel[] = state.search.result;
   const imagePreviewShow: boolean = state.drawer.open;
+  const showSideMenu: boolean = state.sideMenu.open;
 
   // Local State
   const [ bottomRef, setLastImageRef ] = useState();
@@ -86,7 +88,7 @@ const App = () => {
       }
       <div
         className={"App-content" +
-        (isLoading || imagePreviewShow ? " App-content--loading" : "")}
+        (isLoading || imagePreviewShow || showSideMenu ? " App-content--loading" : "")}
         onScroll={handleVisibilityCheck}
       > <div className="App-content-searchbarContainer">
           <Searchbar text={text} sendSearchRef={setSearchRef}/>
@@ -98,7 +100,7 @@ const App = () => {
           <ImagesDisplay sendLastImageRef={setLastImageRef}/>
         }
       </div>
-
+      <SideMenu />
       <Notification/>
       <ImagePreview />
     </div>

@@ -9,6 +9,7 @@ export default interface IActionObjectModel {
   page?: number;
   pages?: number;
   result?: [];
+  safeSearch?: string;
   selectedIndex?: number;
   text?: string;
   total?: number;

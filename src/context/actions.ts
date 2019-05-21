@@ -3,16 +3,45 @@ import { Dispatch } from "react";
 
 // Models
 import IStateModel from "../models/IState.model";
+import SearchModel from "../models/Search.model";
 import { searchFlickrPhoto } from "./api";
 import { typeOptions } from "./reducers";
 
+// Constants
+import { ACCEPETED_PREFERENCE_LIST } from "../constant";
+
 export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
+
+  const updatePreference = ( preferenceObject: SearchModel ) => {
+
+    // Create a list of entries that matches the list of accepted preference
+    const acceptedPeferences = Object.entries(
+      preferenceObject ).filter( ( item ): boolean => ACCEPETED_PREFERENCE_LIST.includes( item[0] ),
+    );
+
+    // Save matching peference to local storage
+    acceptedPeferences.map( ( item ) => {
+        localStorage.setItem( item[0], JSON.stringify(item[1]));
+    } );
+
+    // ALso add the matching perfernece to dispatch
+    const preferenceObjectForDispatch = acceptedPeferences.reduce( ( result, item ) => {
+      return {
+        ...result,
+        [item[0]]: item[1],
+      };
+    } );
+
+    dispatch( {
+        ...preferenceObjectForDispatch,
+        type: typeOptions.UPDATE_SEARCH,
+      } );
+  };
 
   /**
    * Search Flick if is not currently loading
    */
   const searchFlickr = ( searchText: string = state.search.text, newSearchFlag: boolean = false  ): void => {
-
     if ( !state.isLoading && searchText !== "" ) {
       const oldHistory = state.search.history;
       const newHistory = oldHistory.includes( searchText ) ? oldHistory : [...oldHistory, searchText ];
@@ -23,6 +52,7 @@ export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
         searchFlickrPhoto( searchText, dispatch, nextPage, state.search.result, {
           history: newHistory,
           page: nextPage,
+          safeSearch: state.search.safeSearch,
           text: searchText,
           type: typeOptions.UPDATE_SEARCH,
         } );
@@ -32,6 +62,7 @@ export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
         searchFlickrPhoto( searchText, dispatch, 1, [], {
           history: [...oldHistory, searchText ],
           page: 1,
+          safeSearch: state.search.safeSearch,
           text: searchText,
           type: typeOptions.UPDATE_SEARCH,
         } );
@@ -48,6 +79,7 @@ export const useActions = (state: IStateModel, dispatch: Dispatch<any>) => {
   };
 
   return {
-      searchFlickr,
+    searchFlickr,
+    updatePreference,
   };
 };

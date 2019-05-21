@@ -4,6 +4,7 @@
 @import "./components/ImagesDisplay/ImagesDisplay.style.css";
 @import "./components/ImagePreview/ImagePreview.style.css";
 @import "./components/Searchbar/Searchbar.style.css";
+@import "./components/SideMenu/SideMenu.style.css";
 @custom-media --sm-viewport (min-width: 320px) and (max-width: 750px);
 @custom-media --md-viewport (min-width: 750px) and (max-width: 960px);
 @custom-media --lg-viewport (min-width: 960px);

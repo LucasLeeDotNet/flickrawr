@@ -14,6 +14,7 @@ import SearchIcon from "@material-ui/icons/Search";
 
 // Constant
 import { INPUT_TIMEOUT } from "../../constant";
+import { typeOptions } from "../../context/reducers";
 
 export interface ISearchbarModel {
   sendSearchRef?: ( element: HTMLDivElement ) => void;
@@ -28,7 +29,7 @@ export interface ISearchbarModel {
 let inputTimer: NodeJS.Timeout;
 
 const Searchbar = ( props: ISearchbarModel ) => {
-  const { actions } = useContext( StoreContext );
+  const { actions, dispatch } = useContext( StoreContext );
   const { sendSearchRef, text } = props;
   const styleSuffix = props.styleSuffix || "";
 
@@ -100,6 +101,18 @@ const Searchbar = ( props: ISearchbarModel ) => {
 
 
   /**
+   * Handle click to open sidemenu
+   */
+  const handleSideMenuClick = (): void => {
+      dispatch(
+      {
+        type: typeOptions.SHOW_SIDEMENU,
+      },
+    );
+  };
+
+
+  /**
    * Sends the search element reference to the parent callback
    */
   const setSearchRef = (element: HTMLDivElement): void => {
@@ -110,7 +123,7 @@ const Searchbar = ( props: ISearchbarModel ) => {
   return(
     <div className={"Searchbar" + styleSuffix} ref={setSearchRef}>
       <Paper className={"Searchbar-paper" + styleSuffix} elevation={1}>
-        <IconButton aria-label="Menu">
+        <IconButton aria-label="Menu" onClick={handleSideMenuClick}>
           <MenuIcon />
         </IconButton>
         <InputBase

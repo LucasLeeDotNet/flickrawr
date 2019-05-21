@@ -10,12 +10,14 @@ export const typeOptions = {
   FETCHED_PHOTOS: "FETCHED_PHOTOS",
   HIDE_DRAWER: "HIDE_DRAWER",
   HIDE_NOTIFICATION: "HIDE_NOTIFICATION",
+  HIDE_SIDEMENU: "HIDE_SIDEMENU",
   IS_ANIMATING: "IS_ANIMATING",
   IS_LOADING: "IS_LOADING",
   IS_NOT_ANIMATING: "IS_NOT_ANIMATING",
   IS_NOT_LOADING: "IS_NOT_LOADING",
   SHOW_DRAWER: "SHOW_DRAWER",
   SHOW_NOTIFICATION: "SHOW_NOTIFICATION",
+  SHOW_SIDEMENU: "SHOW_SIDEMENU",
   UPDATE_SEARCH: "UPDATE_SEARCH",
 };
 
@@ -62,6 +64,16 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
         ...state,
         notification: {
           ...state.notification,
+          open: false,
+        },
+      };
+
+
+    case typeOptions.HIDE_SIDEMENU:
+      return {
+        ...state,
+        sideMenu: {
+          ...state.sideMenu,
           open: false,
         },
       };
@@ -152,6 +164,17 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
       };
 
 
+    case typeOptions.SHOW_SIDEMENU:
+      return {
+        ...state,
+        sideMenu: {
+          ...state.sideMenu,
+          anchor: action.anchor || state.sideMenu.anchor,
+          open: true,
+        },
+      };
+
+
     case typeOptions.UPDATE_SEARCH:
       return {
         ...state,
@@ -159,7 +182,12 @@ const reducers = ( state: IStateModel = initialState, action: IActionObjectModel
           ...state.search,
           history: action.history || state.search.history,
           page: action.page || state.search.page,
+          safeSearch: action.safeSearch || state.search.safeSearch,
           text: action.text || state.search.text,
+        },
+        sideMenu: {
+          ...state.sideMenu,
+          open: false,
         },
       };
 
