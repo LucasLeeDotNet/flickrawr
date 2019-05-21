@@ -5788,10 +5788,16 @@ fieldset {
 
 .SideMenu-buttonsContainer {
 
-  bottom: 0;
+  bottom: 25px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 0.5rem;
   position: absolute;
-  right: 0;
+  width: calc(100vw - 1rem);
 }
 
 .SideMenu-buttonsContainer button {
@@ -5808,6 +5814,12 @@ fieldset {
 
   background-color: #ff0800 !important;
   color: white !important;
+}
+
+.SideMenu-input {
+
+  margin-bottom: 1rem !important;
+  width: 100%;
 }
 
 @media (min-width: 320px) and (max-width: 750px) {
