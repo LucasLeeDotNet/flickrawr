@@ -5763,6 +5763,10 @@ fieldset {
   }
 }
 
+.SideMenu { 
+  height: 100vh;
+}
+
 .SideMenu div[role="document"] {
 
   height: calc(100vh - 77px);
