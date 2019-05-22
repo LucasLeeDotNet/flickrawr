@@ -5756,7 +5756,6 @@ fieldset {
     margin-top: -5px;
     min-width: initial;
     padding: 5px;
-    width: 95vw;
   }
 
   .Searchbar--forHeader {
@@ -5813,7 +5812,7 @@ fieldset {
 .SideMenu-Content {
 
   padding: 0.5rem;
-  width: 15rem;
+  width: 20rem;
 }
 
 .SideMenu-safeSearch {
@@ -5878,13 +5877,12 @@ fieldset {
 
   .SideMenu div[role="document"] {
 
-    background-color: rgb(255, 255, 255, 0.7);
+    background-color: white;
   }
 
   .SideMenu > div:first-child {
 
-    background-color: initial;
-    height: calc(100vh - 157px);
+    height: calc(100vh - 76px);
     top: 76px;
   }
 
