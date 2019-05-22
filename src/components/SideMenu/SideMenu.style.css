@@ -2,10 +2,15 @@
   height: 100vh;
 }
 
+.SideMenu div:first-child {
+
+  top: 66px;
+}
+
 .SideMenu div[role="document"] {
 
-  height: calc(100vh - 77px);
-  margin-top: 77px;
+  height: calc(100vh - 127px);
+  margin-top: 70px;
 }
 
 .SideMenu-title {
@@ -27,7 +32,7 @@
 
 .SideMenu-buttonsContainer {
 
-  bottom: 60px;
+  bottom: 10px;
   display: flex;
   justify-content: center;
   padding: 0.5rem;
@@ -61,6 +66,12 @@
 
 @media (--sm-viewport) {
 
+  .SideMenu div[role="document"] {
+
+    height: calc(100vh - 77px);
+    margin-top: 77px;
+  }
+
   .SideMenu-Content {
 
     width: 100vw;
@@ -79,6 +90,8 @@
   .SideMenu div:first-child {
 
     background-color: initial;
+    height: calc(100vh - 157px);
+    top: 76px;
   }
 
   .SideMenu-buttonsContainer {
