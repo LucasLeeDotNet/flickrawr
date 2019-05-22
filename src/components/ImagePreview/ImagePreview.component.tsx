@@ -31,21 +31,25 @@ const ImagePreview = ( ) => {
 
 
   const handleLoadPreviousImage = (): void => {
+    if ( selectedIndex > 0 ) {
       dispatch(
-      {
-        selectedIndex: selectedIndex - 1,
-        type: typeOptions.SHOW_DRAWER,
-      },
-    );
+        {
+          selectedIndex: selectedIndex - 1,
+          type: typeOptions.SHOW_DRAWER,
+        },
+      );
+    }
   };
 
   const handleLoadNextImage = (): void => {
+    if ( selectedIndex < results.length - 1 ) {
       dispatch(
-      {
-        selectedIndex: selectedIndex + 1,
-        type: typeOptions.SHOW_DRAWER,
-      },
-    );
+        {
+          selectedIndex: selectedIndex + 1,
+          type: typeOptions.SHOW_DRAWER,
+        },
+      );
+    }
   };
 
   return (
@@ -56,9 +60,11 @@ const ImagePreview = ( ) => {
       onClose={handleClosePreview}
     >
       <div className="ImagePreview">
-        {selectedIndex}
-        <div className="ImagePreview-backNav">
-          <IconButton disabled={selectedIndex < 1} onClick={handleLoadPreviousImage} aria-label="Last Image">
+        <div
+          className="ImagePreview-backNav"
+          onClick={handleLoadPreviousImage}
+        >
+          <IconButton disabled={selectedIndex < 1}  aria-label="Last Image">
             <BackwardIcon />
           </IconButton>
         </div>
@@ -72,10 +78,12 @@ const ImagePreview = ( ) => {
           :
           undefined
         }
-        <div className="ImagePreview-forwardNav">
+        <div
+          className="ImagePreview-forwardNav"
+          onClick={handleLoadNextImage}
+        >
           <IconButton
             aria-label="Next Image"
-            onClick={handleLoadPreviousImage}
             disabled={selectedIndex > results.length - 2}
           >
             <ForwardIcon />
