@@ -23,7 +23,7 @@
 .SideMenu-Content {
 
   padding: 0.5rem;
-  width: 15rem;
+  width: 20rem;
 }
 
 .SideMenu-safeSearch {
@@ -84,13 +84,12 @@
 
   .SideMenu div[role="document"] {
 
-    background-color: rgb(255, 255, 255, 0.7);
+    background-color: white;
   }
 
   .SideMenu > div:first-child {
 
-    background-color: initial;
-    height: calc(100vh - 157px);
+    height: calc(100vh - 76px);
     top: 76px;
   }
 
