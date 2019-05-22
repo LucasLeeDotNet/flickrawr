@@ -2,7 +2,7 @@
   height: 100vh;
 }
 
-.SideMenu div:first-child {
+.SideMenu > div:first-child {
 
   top: 66px;
 }
@@ -68,7 +68,7 @@
 
   .SideMenu div[role="document"] {
 
-    height: calc(100vh - 77px);
+    height: calc(100vh - 127px);
     margin-top: 77px;
   }
 
@@ -87,7 +87,7 @@
     background-color: rgb(255, 255, 255, 0.7);
   }
 
-  .SideMenu div:first-child {
+  .SideMenu > div:first-child {
 
     background-color: initial;
     height: calc(100vh - 157px);
