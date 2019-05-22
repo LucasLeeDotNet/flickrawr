@@ -3,7 +3,7 @@
   align-items: center;
   background: transparent;
   display: flex;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 65px);
   justify-content: center;
   overflow: scroll;
 }
@@ -81,7 +81,7 @@
 
   .ImagePreview {
 
-    height: calc(100vh - 80px);
+    height: calc(100vh - 70px);
   }
 }
 
@@ -93,6 +93,6 @@
 
   .ImagePreview {
 
-    height: calc(100vh - 80px);
+    height: calc(100vh - 77px);
   }
 }
