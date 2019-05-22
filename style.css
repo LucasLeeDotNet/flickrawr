@@ -5500,7 +5500,7 @@ fieldset {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 65px);
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -5589,7 +5589,7 @@ fieldset {
 
   .ImagePreview {
 
-    height: calc(100vh - 80px);
+    height: calc(100vh - 70px);
   }
 }
 
@@ -5601,7 +5601,7 @@ fieldset {
 
   .ImagePreview {
 
-    height: calc(100vh - 80px);
+    height: calc(100vh - 77px);
   }
 }
 
