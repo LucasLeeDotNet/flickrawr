@@ -5163,7 +5163,7 @@ fieldset {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 0.5rem; 
+  padding: 0.5rem;
   width: 100%;
 }
 
@@ -5792,10 +5792,15 @@ fieldset {
   height: 100vh;
 }
 
+.SideMenu div:first-child {
+
+  top: 66px;
+}
+
 .SideMenu div[role="document"] {
 
-  height: calc(100vh - 77px);
-  margin-top: 77px;
+  height: calc(100vh - 127px);
+  margin-top: 70px;
 }
 
 .SideMenu-title {
@@ -5817,7 +5822,7 @@ fieldset {
 
 .SideMenu-buttonsContainer {
 
-  bottom: 60px;
+  bottom: 10px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -5855,6 +5860,12 @@ fieldset {
 
 @media (min-width: 320px) and (max-width: 750px) {
 
+  .SideMenu div[role="document"] {
+
+    height: calc(100vh - 77px);
+    margin-top: 77px;
+  }
+
   .SideMenu-Content {
 
     width: 100vw;
@@ -5873,6 +5884,8 @@ fieldset {
   .SideMenu div:first-child {
 
     background-color: initial;
+    height: calc(100vh - 157px);
+    top: 76px;
   }
 
   .SideMenu-buttonsContainer {
