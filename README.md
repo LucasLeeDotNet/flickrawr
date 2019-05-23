@@ -73,7 +73,7 @@ docker-compose -up -d
 ```
 This will run the docker at port 8443, it also has the port 8080 mapped to the host 8080 to serve the webapp from inside the container
 After bring the docker up, visit localhost: 8443
-In the web version of VS Code, press command + `(Mac) or control + `(Win) to bring up a terminal, then in terminal execute the follow as if you were at host.
+In the web version of VS Code, bring up a terminal, then in terminal execute the follow as if you were at the host system.
 ``` bash
 # Install npm module
 npm insall
