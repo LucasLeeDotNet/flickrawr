@@ -17,6 +17,7 @@
 </div>
 
 ## Table of Contents
+
 - [Try it out](#try)
 - [Download/Install](#download-install)
 - [Pipeline](#pipeline)
@@ -30,8 +31,8 @@ flickrawr is currently deployed at (https://flickrawr.typescript.studio).
 
 <a id="download-install"></a>Download/Install
 
-
 ## <a id="pipeline"></a>Pipeline
+
 This app is currently automatically deployed to S3 using gitlabs pipeline, view the pipeline at (https://gitlab.com/LucasLee/flickrawr/pipelines).
 
 ## <a id="aws"></a>AWS
