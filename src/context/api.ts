@@ -13,6 +13,7 @@ import fetch from "cross-fetch";
 
 // Constant
 import { BASIC_JSON_HEADERS, FLICKR_API_KEY, FLICKR_URL, PAGE_SIZE } from "../constant";
+import { checkResponse } from "./common";
 
 export const searchFlickrPhoto = (
   searchText: string,
@@ -51,6 +52,7 @@ export const searchFlickrPhoto = (
     headers: BASIC_JSON_HEADERS,
     method: "GET",
   })
+  .then( checkResponse )
   .then( ( response ) => response.json() )
   .then( ( json ) => {
     setTimeout( () => {
@@ -66,7 +68,12 @@ export const searchFlickrPhoto = (
       } );
     }, 500);
   } )
-  .catch( () => {
-    dispatch( { type: typeOptions.IS_NOT_LOADING, message: `Error: Unable to retrieve images for "${searchText}"` } );
+  .catch( ( error: string ) => {
+    dispatch(
+      {
+        message: "Error: " + (error || `Unable to retrieve images for "${searchText}"`),
+        type: typeOptions.IS_NOT_LOADING,
+      },
+    );
   } );
 };
