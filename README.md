@@ -16,9 +16,23 @@
 
 </div>
 
-## <a id="server"></a>Try it out
+## Table of Contents
+- [Try it out](#try)
+- [Download/Install](#download-install)
+- [Pipeline](#pipeline)
+- [AWS](#aws)
+- [Frontend Develoipment](#frontend)
+- [Add Features](#app-features)
 
-flickrawr is currently automatically deployed at (https://flickrawr.typescript.studio)
+## <a id="try"></a>Try it out
+
+flickrawr is currently deployed at (https://flickrawr.typescript.studio).
+
+<a id="download-install"></a>Download/Install
+
+
+## <a id="pipeline"></a>Pipeline
+This app is currently automatically deployed to S3 using gitlabs pipeline, view the pipeline at (https://gitlab.com/LucasLee/flickrawr/pipelines).
 
 ## <a id="aws"></a>AWS
 
@@ -30,7 +44,7 @@ flickrawr is currently automatically deployed at (https://flickrawr.typescript.s
 
 - S3 serves the static React app.
 
-## Frontend Development
+## <a id="frontend"></a>Frontend Development
 
 - This app is written purely on React hooks api for managing state.
 
@@ -42,7 +56,7 @@ flickrawr is currently automatically deployed at (https://flickrawr.typescript.s
 
 - tslink and stylelint are setup to ensure code qualuty. 
 
-## App Features
+## <a id="app-features"></a>App Features
 
 - Search bar has a auto interval that gets triggered when the user start typing, gets refresh when the user types, and will submit the search if the user stop typing.
 
