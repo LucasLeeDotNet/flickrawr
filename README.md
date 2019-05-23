@@ -20,6 +20,9 @@
 
 - [Try it out](#try)
 - [Download/Install](#download-install)
+    - [Install for development with NPM](#install-for-development-with-npm)
+    - [Install for production with NPM](#install-for-production-with-npm)
+    - [Install for development with docker, with all dev tools prepackaged](nstall-for-development-with-docker)
 - [Pipeline](#pipeline)
 - [AWS](#aws)
 - [Frontend Develoipment](#frontend)
@@ -29,7 +32,56 @@
 
 flickrawr is currently deployed at (https://flickrawr.typescript.studio).
 
-<a id="download-install"></a>Download/Install
+## <a id="download-install"></a>Download/Install
+
+#### <a id="install-for-development-with-npm"></a>Install for development with NPM
+If you have [node with NPM](https://nodejs.org/en/) installed and master branch checked out, in the working repo directory:
+```bash
+# Install node modules
+npm install
+# Runs webpack server in watch mode
+npm start
+# Runs the suitcss preprocessor in watch mode (Optional)
+npm run suitup
+```
+
+#### <a id="install-for-production-with-npm"></a>Install for production with NPM
+
+If you have [node with NPM](https://nodejs.org/en/) installed and master branch checked out, in the working repo directory:
+```bash
+# Install node modules
+npm install
+# Builds the production artifact to the /build folder
+npm run build
+```
+
+#### <a id="install-for-development-with-docker"></a>Install for development with docker, with all dev tools prepackaged
+
+- This prepackage all dependency for development, reguardless of enviorment as long as docker is installed
+- This installs node and npm, npx, yarn
+- This installs VS code with all settings and extension expected for development of this project
+- The code-server vs code is server locally at 8443
+
+If you have [Docker with Docker-compose](https://docs.docker.com/install/) installed and master branch checked out, in the working repo directory:
+```bash
+@ Add execute permission for the build script
+sudo chmod +x ./build.sh
+# Execture the script to build the docker image
+./build.sh
+# Execute the docker-compose script in detached mode
+docker-compose -up -d
+```
+This will run the docker at port 8443, it also has the port 8080 mapped to the host 8080 to serve the webapp from inside the container
+After bring the docker up, visit localhost: 8443
+In the web version of VS Code, press command + `(Mac) or control + `(Win) to bring up a terminal, then in terminal execute the follow as if you were at host.
+``` bash
+# Install npm module
+npm insall
+# Run dev server
+npm start
+# Run SuitCSS preprocessor (Optional)
+npm run suitup
+```
 
 ## <a id="pipeline"></a>Pipeline
 
