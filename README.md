@@ -64,7 +64,7 @@ npm run build
 
 If you have [Docker with Docker-compose](https://docs.docker.com/install/) installed and master branch checked out, in the working repo directory:
 ```bash
-@ Add execute permission for the build script
+# Add execute permission for the build script
 sudo chmod +x ./build.sh
 # Execture the script to build the docker image
 ./build.sh
