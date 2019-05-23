@@ -1,13 +1,13 @@
 {
   "name": "flickrawr",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Flickr, but louder, Rawr!",
   "main": "index.component.tsx",
   "scripts": {
     "build": "( suitcss ./src/index.css build/style.css --minify || true ) && webpack --mode production",
     "build:styles": "suitcss ./src/index.css build/style.css --minify",
     "deploy:github-pages": "gh-pages -d build",
-    "start": "webpack-dev-server --env.ENVIRONMENT=development --content-base build/ --mode development --watch --watch-poll",
+    "start": "webpack-dev-server --env.ENVIRONMENT=development --content-base build/ --mode development --watch --watch-poll --host 0.0.0.0",
     "suitup": "suitcss ./src/index.css build/style.css --watch"
   },
   "repository": {
