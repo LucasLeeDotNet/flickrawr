@@ -5190,7 +5190,7 @@ fieldset {
   position: fixed;
   top: 0;
   width: 100vw;
-  z-index: 10;
+  z-index: 15;
 }
 
 .NavHeader-logo {
@@ -5802,7 +5802,7 @@ fieldset {
 
 .SideMenu div[role="document"] {
 
-  height: calc(100vh - 4rem - 3.125rem);
+  height: calc(100vh - 4rem - 4.375rem);
   margin-top: 4rem;
 }
 
@@ -5865,7 +5865,7 @@ fieldset {
 
   .SideMenu div[role="document"] {
 
-    height: calc(100vh - 4.75rem - 3.125rem);
+    height: calc(100vh - 4.75rem - 4.375rem);
     margin-top: 4.75rem;
   }
 
