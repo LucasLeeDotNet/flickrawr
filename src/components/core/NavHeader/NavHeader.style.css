@@ -44,7 +44,7 @@
 
   .NavHeader-subtitle,
   .NavHeader-subtitle--showSearch,
-  .NavHeader-title--showSerch {
+  .NavHeader-title--showSearch {
 
     display: none;
   }
@@ -74,7 +74,7 @@
 
   .NavHeader-subtitle,
   .NavHeader-subtitle--showSearch,
-  .NavHeader-title--showSerch {
+  .NavHeader-title--showSearch {
 
     display: none;
   }

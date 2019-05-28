@@ -20,16 +20,26 @@ const ImagePreview = ( ) => {
   const { dispatch, state } = useContext( StoreContext );
   const open: boolean = state.drawer.open;
   const results: FlickrPhotoModel[] = state.search.result;
-  const selectedIndex = state.drawer.selectedIndex;
-  const image = results[ selectedIndex ];
+  const selectedIndex: number = state.drawer.selectedIndex;
+  const image: FlickrPhotoModel = results[ selectedIndex ];
   const anchor = state.drawer.anchor;
 
 
+  /**
+   * Dispatch to close the image preview
+   *
+   * @returns void
+   */
   const handleClosePreview = ( ): void => {
     dispatch( { type: typeOptions.HIDE_DRAWER } );
   };
 
 
+  /**
+   * Dispatch to load previous image, if the previous image exists
+   *
+   * @returns void
+   */
   const handleLoadPreviousImage = (): void => {
     if ( selectedIndex > 0 ) {
       dispatch(
@@ -41,6 +51,12 @@ const ImagePreview = ( ) => {
     }
   };
 
+
+  /**
+   * Dispatch to load next image, if the next image exists
+   *
+   * @returns void
+   */
   const handleLoadNextImage = (): void => {
     if ( selectedIndex < results.length - 1 ) {
       dispatch(
@@ -51,6 +67,7 @@ const ImagePreview = ( ) => {
       );
     }
   };
+
 
   return (
     <Drawer
@@ -64,6 +81,11 @@ const ImagePreview = ( ) => {
           className="ImagePreview-backNav"
           onClick={handleLoadPreviousImage}
         >
+          {
+            /**
+             * Disable the icon button if theres no more last images to view
+             */
+          }
           <IconButton disabled={selectedIndex < 1}  aria-label="Last Image">
             <BackwardIcon />
           </IconButton>
@@ -82,6 +104,11 @@ const ImagePreview = ( ) => {
           className="ImagePreview-forwardNav"
           onClick={handleLoadNextImage}
         >
+          {
+            /**
+             * Disable the icon button if theres no more next images to view
+             */
+          }
           <IconButton
             aria-label="Next Image"
             disabled={selectedIndex > results.length - 2}

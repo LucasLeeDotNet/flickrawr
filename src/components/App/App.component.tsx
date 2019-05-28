@@ -37,28 +37,41 @@ const App = () => {
   const [ searchRef, setSearchRef ] = useState();
 
 
-  // Remove an item from the history
-  const handleDeleteHistory = ( searchHistory: string ) => {
+  /**
+   * Remove an item from the history
+   *
+   * @param {string} searchHistory Name of the search term to be deleted from history
+   * @returns void
+   */
+  const handleDeleteHistory = ( searchHistory: string ): void => {
     actions.deleteHistory( searchHistory );
   };
 
 
   /**
-   * Search the term when it is clicked in the history
+   * Search the term when the search term history is clicked
+   *
+   * @param {string} searchTerm Search term show in the history list
+   * @returns void
    */
-  const handleHistoryClick = ( searchTerm: string ) => {
+  const handleHistoryClick = ( searchTerm: string ): void => {
     actions.searchFlickr( searchTerm, true );
   };
 
 
   /**
    * Fires on scroll, check if certain elements within the viewport and performs an action
+   *
+   * @returns void
    */
-  const handleVisibilityCheck = () => {
+  const handleVisibilityCheck = (): void => {
+
+    // Checks if the bottom reference is visible, if is visible perform a search for the next page
     if ( bottomRef && checkIsVisible( bottomRef ) ) {
         actions.searchFlickr(state.search.text, false );
       }
 
+    // Check if the search bar is visible, if not visible, show the show the search bar in the nav header
     if ( searchRef && checkIsVisible( searchRef ) ) {
         setShowHeaderSearch( false );
     } else {
@@ -69,6 +82,9 @@ const App = () => {
 
   /**
    * Helper function to check if an element is visible in the viewport
+   *
+   * @param {HTMLElement} element The reference element that is being checked
+   * @returns {boolean} The result of checking if an element is in the viewport
    */
   const checkIsVisible = ( element: HTMLElement ): boolean => {
     const bound = element.getBoundingClientRect();
@@ -107,6 +123,11 @@ const App = () => {
         onScroll={handleVisibilityCheck}
       > <div className="App-content-searchbarContainer">
           <Searchbar text={text} sendSearchRef={setSearchRef}/>
+          {
+            /**
+             * Show a list of search term history
+             */
+          }
           <div className="app-content-historyContainer">
             {
               history.map( ( item: string, index: number ) => {
@@ -127,6 +148,9 @@ const App = () => {
           </div>
         </div>
         {
+          /**
+           * Only show the image display if theres at least one image
+           */
           result.length === 0 ?
           undefined
           :

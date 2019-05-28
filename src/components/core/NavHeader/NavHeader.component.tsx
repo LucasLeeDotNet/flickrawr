@@ -21,7 +21,7 @@ const NavHeader = ( props: INavHeader ) => {
   const { state } = useContext( StoreContext );
   const { showSearch } = props;
   const isLoading: boolean = state.isLoading;
-  const text = state.search.text;
+  const text: string = state.search.text;
   const imagePreviewShow: boolean = state.drawer.open;
 
   return (
@@ -29,8 +29,18 @@ const NavHeader = ( props: INavHeader ) => {
       <AppBar position="static" color="default">
         <Toolbar className="NavHeader-toolbar">
           <img className="NavHeader-logo" src="./logo.png"/>
-          <div className={"NavHeader-title" + ( showSearch && !imagePreviewShow ? " NavHeader-title--showSerch" : "")}>
+          {
+            /**
+             * show the searchbar if showSearch flag is set to true and it is not currently showing an image preview
+             */
+          }
+          <div className={"NavHeader-title" + ( showSearch && !imagePreviewShow ? " NavHeader-title--showSearch" : "")}>
             {APP_NAME}
+            {
+              /**
+               * Hide the subtitle when the showSearch flag is true
+               */
+            }
             <span
               className={"NavHeader-subtitle" + ( showSearch ? " NavHeader-subtitle--showSearch" : "")}
             >

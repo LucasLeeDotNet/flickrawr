@@ -20,7 +20,9 @@ const Notification = () => {
 
 
     /**
-     * Close the generic snackbar
+     * Dispatch to close the generic snackbar
+     *
+     * @returns void
      */
     const handleClose = (): void => {
       dispatch({

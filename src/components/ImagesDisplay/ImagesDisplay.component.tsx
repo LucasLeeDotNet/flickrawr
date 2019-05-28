@@ -1,5 +1,5 @@
 // React
-import React, { RefObject, useContext, useEffect, useState } from "react";
+import React, { MouseEvent, RefObject, useContext, useEffect, useState } from "react";
 
 // State
 import { StoreContext } from "../../context/StoreContext";
@@ -40,8 +40,15 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
   }, [searchElement]);
 
 
+  /**
+   * Dispatch for clicking a specific image
+   * @param {MouseEvent<HTMLDivElement>} event Mouse click event (unused)
+   * @param {number} index index of the selected image
+   *
+   * @returns void
+   */
   const handleImageClick = (
-    event: React.MouseEvent<HTMLDivElement>,
+    event: MouseEvent<HTMLDivElement>,
     index: number): void => {
     dispatch(
       {
