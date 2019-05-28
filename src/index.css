@@ -38,7 +38,7 @@
     Bottom offset to prevent button located at the bottom of the screen
     becoming inaccessible when natual scrolls goes beyond the container height
   */
-  --bottom-offset: 3.125rem;
+  --bottom-offset: 4.375rem;
 }
 
 * {
