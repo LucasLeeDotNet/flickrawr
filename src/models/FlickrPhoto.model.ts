@@ -1,6 +1,6 @@
 /**
  * Model for the photo images returned from flickr
- * Noe the constructor is only used for creaing test data
+ * Note that the constructor is only used for creaing test data
  */
 export default class FlickrPhotoModel {
   public farm: number = -1;

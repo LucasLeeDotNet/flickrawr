@@ -2,7 +2,7 @@
   align-items: stretch;
   display: flex;
   flex-direction: column;
-  min-width: 960px;
+  min-width: 60rem;
   padding: 2rem;
 }
 
@@ -12,9 +12,9 @@
 
 .Searchbar-input input {
 
-  color: rgb(0, 0, 0, 0.8);
-  font-family: "Courier New", Courier, monospace;
-  font-size: 1.5em;
+  color: var(--dark-transparent-overlay-color);
+  font-family: var(--primary-font-family);
+  font-size: var(--m-title-font-size);
   letter-spacing: 0.0075em;
   line-height: 1.6;
   margin-left: 1rem;
@@ -23,16 +23,12 @@
 .Searchbar-paper {
 
   display: flex;
-  height: 67px;
+  height: 4.1875rem;
   padding: 0.5rem;
 }
 
 .Searchbar-clearButton {
-  color: #f00 !important;
-}
-
-.Searchbar-paper svg {
-  font-size: 2rem;
+  color: var(--warning-color) !important;
 }
 
 /**
@@ -44,15 +40,15 @@
   display: flex;
   flex: 2;
   justify-content: flex-end;
-  margin-right: -20px;
-  padding: 5px;
+  margin-right: -1.25rem;
+  padding: 0.3125rem;
 }
 
 .Searchbar-input--forHeader input {
 
-  color: rgb(0, 0, 0, 0.8);
-  font-family: "Courier New", Courier, monospace;
-  font-size: 1.3em;
+  color: var(--dark-transparent-overlay-color);
+  font-family: var(--primary-font-family);
+  font-size: var(--m-title-font-size);
   letter-spacing: 0.0075em;
   line-height: 1.6;
   margin-left: 1rem;
@@ -70,10 +66,10 @@
     align-items: stretch;
     display: flex;
     flex-direction: column;
-    height: 90px;
-    margin-top: -5px;
+    height: 5.625rem;
+    margin-top: -0.3125rem;
     min-width: initial;
-    padding: 5px;
+    padding: 0.3125rem;
     width: 100%;
   }
 
@@ -83,12 +79,12 @@
   }
 
   .Searchbar-paper {
-    margin: 10px;
+    margin: 0.625rem;
   }
 
   .Searchbar-paper--forHeader {
 
-    padding: 0 5px;
+    padding: 0 0.3125rem;
   }
 
   .Searchbar-paper button,
@@ -105,10 +101,10 @@
     align-items: stretch;
     display: flex;
     flex-direction: column;
-    height: 90px;
-    margin-top: -5px;
+    height: 5.625rem;
+    margin-top: -0.3125rem;
     min-width: initial;
-    padding: 5px;
+    padding: 0.3125rem;
   }
 
   .Searchbar--forHeader {
@@ -117,12 +113,12 @@
   }
 
   .Searchbar-paper {
-    margin: 10px;
+    margin: 0.625rem;
   }
 
   .Searchbar-paper--forHeader {
 
-    padding: 0 5px;
+    padding: 0 0.3125rem;
   }
 
   .Searchbar-paper button,

@@ -11,5 +11,43 @@
 @custom-media --iphone-x-viewport (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio : 3);
 
 :root {
-  --Grid-gutterSize: 25px;
+  --primary-color: #0063dc;
+  --secondary-color: #ff0084;
+  --warning-color: #f00;
+  --dark-transparent-overlay-color: rgb(0, 0, 0, 0.8);
+  --semi-dark-transparent-overlay-color: rgb(0, 0, 0, 0.3);
+
+  /* media query related prefix for size are sm, md, lg */
+  --sm-header-height: 4.75rem;
+  --md-header-height: 4rem;
+
+  /*
+    Fonts
+  */
+  --primary-font-family: "Courier New", Courier, monospace;
+
+  /* non media query related prefix for size are s, m, l */
+  --s-title-font-size: 1.35rem;
+  --m-title-font-size: 1.5rem;
+  --l-title-font-size: 1.8rem;
+
+  --s-icon-font-size: 2.1875rem;
+  --m-icon-font-size: 3.125rem;
+
+  /*
+    Bottom offset to prevent button located at the bottom of the screen
+    becoming inaccessible when natual scrolls goes beyond the container height
+  */
+  --bottom-offset: 3.125rem;
+}
+
+* {
+
+  margin: 0;
+  padding: 0;
+}
+
+html {
+
+  font-size: 16px;
 }

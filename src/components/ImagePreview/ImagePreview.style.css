@@ -3,7 +3,7 @@
   align-items: center;
   background: transparent;
   display: flex;
-  height: calc(100vh - 65px);
+  height: calc(100vh - var(--md-header-height));
   justify-content: center;
   overflow: scroll;
 }
@@ -33,7 +33,7 @@
 }
 
 .ImagePreview-drawer > div:nth-child(1) {
-  top: 65px;
+  top: var(--md-header-height);
 }
 
 .ImagePreview-photo {
@@ -46,9 +46,9 @@
 
 .ImagePreview-buttonContainer {
 
-  bottom: 25px;
-  color: rgb(0, 0, 0, 0.8);
-  font-family: "Courier New", Courier, monospace;
+  bottom: 1.5625rem;
+  color: var(--dark-transparent-overlay-color);
+  font-family: var(--primary-font-family);
   left: auto;
   position: absolute;
   right: auto;
@@ -58,41 +58,43 @@
 .ImagePreview-backNav button,
 .ImagePreview-forwardNav button {
 
+  background-color: var(--semi-dark-transparent-overlay-color);
+  border-radius: 0;
   color: white;
-  filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
+  filter: drop-shadow(0.75rem 0.75rem 0.4375rem rgba(0, 0, 0, 0.7));
 }
 
 .ImagePreview-buttonContainer svg {
 
-  font-size: 35px;
+  font-size: var(--s-icon-font-size);
 }
 
 .ImagePreview-backNav button svg,
 .ImagePreview-forwardNav button svg {
 
-  font-size: 50px !important;
+  font-size: var(--m-icon-font-size) !important;
 }
 
 @media (--iphone-x-viewport) {
 
   .ImagePreview-drawer > div:nth-child(1) {
-    top: 70px;
+    top: var(--sm-header-height);
   }
 
   .ImagePreview {
 
-    height: calc(100vh - 70px);
+    height: calc(100vh - var(--sm-header-height));
   }
 }
 
 @media (--sm-viewport) {
 
   .ImagePreview-drawer > div:nth-child(1) {
-    top: 77px;
+    top: var(--sm-header-height);
   }
 
   .ImagePreview {
 
-    height: calc(100vh - 77px);
+    height: calc(100vh - var(--sm-header-height));
   }
 }

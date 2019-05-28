@@ -1,22 +1,23 @@
 .SideMenu {
+
   height: 100vh;
 }
 
 .SideMenu > div:first-child {
 
-  top: 66px;
+  top: var(--md-header-height);
 }
 
 .SideMenu div[role="document"] {
 
-  height: calc(100vh - 127px);
-  margin-top: 70px;
+  height: calc(100vh - var(--md-header-height) - var(--bottom-offset));
+  margin-top: var(--md-header-height);
 }
 
 .SideMenu-title {
 
-  font-family: "Courier New", Courier, monospace;
-  font-size: 1.35rem;
+  font-family: var(--primary-font-family);
+  font-size: var(--s-title-font-size);
   margin-bottom: 1rem;
 }
 
@@ -32,7 +33,7 @@
 
 .SideMenu-buttonsContainer {
 
-  bottom: 10px;
+  bottom: 0.625rem;
   display: flex;
   justify-content: center;
   padding: 0.5rem;
@@ -48,13 +49,13 @@
 
 .SideMenu-saveButton {
 
-  background-color: #0063dc !important;
+  background-color: var(--primary-color) !important;
   color: white !important;
 }
 
 .SideMenu-cancelButton {
 
-  background-color: #ff0084 !important;
+  background-color: var(--secondary-color) !important;
   color: white !important;
 }
 
@@ -68,8 +69,8 @@
 
   .SideMenu div[role="document"] {
 
-    height: calc(100vh - 127px);
-    margin-top: 77px;
+    height: calc(100vh - var(--sm-header-height) - var(--bottom-offset));
+    margin-top: var(--sm-header-height);
   }
 
   .SideMenu-Content {
@@ -79,7 +80,7 @@
 
   .SideMenu-title {
 
-    font-size: 1.5rem;
+    font-size: var(--m-title-font-size);
   }
 
   .SideMenu div[role="document"] {
@@ -89,8 +90,8 @@
 
   .SideMenu > div:first-child {
 
-    height: calc(100vh - 76px);
-    top: 76px;
+    height: calc(100vh - var(--sm-header-height));
+    top: var(--sm-header-height);
   }
 
   .SideMenu-buttonsContainer {

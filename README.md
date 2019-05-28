@@ -1,13 +1,8 @@
 <div  id="flickrawr-logo"  align="center">
-
-<br />
-
-<img  src="./public/logo.png"  alt="flickrawr logo"  width="200"/>
-
-<h1>flickrawr!</h1>
-
-<h3>rawrrrr! for images</h3>
-
+    <br />
+    <img  src="./public/logo.png"  alt="flickrawr logo"  width="200"/>
+    <h1>flickrawr!</h1>
+    <h3>rawrrrr! for images</h3>
 </div>
 
 <div align="center">

@@ -6,11 +6,16 @@
   z-index: 10;
 }
 
+.NavHeader-logo {
+
+  width: 6.25rem;
+}
+
 .NavHeader-title {
 
-  color: rgb(0, 0, 0, 0.8);
-  font-family: "Courier New", Courier, monospace;
-  font-size: 1.8em;
+  color: var(--dark-transparent-overlay-color);
+  font-family: var(--primary-font-family);
+  font-size: var(--l-title-font-size);
   font-weight: bold;
   letter-spacing: 0.0075em;
   line-height: 1.6;
@@ -45,8 +50,8 @@
   }
 
   .NavHeader-toolbar {
-    min-height: 76px !important;
-    padding: 10px;
+    min-height: var(--sm-header-height) !important;
+    padding: 0.625rem;
   }
 
 }
@@ -75,8 +80,8 @@
   }
 
   .NavHeader-toolbar {
-    min-height: 76px !important;
-    padding: 10px;
+    min-height: var(--sm-header-height) !important;
+    padding: 0.625rem;
   }
 
 }

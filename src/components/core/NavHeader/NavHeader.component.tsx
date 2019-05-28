@@ -28,7 +28,7 @@ const NavHeader = ( props: INavHeader ) => {
     <div className="NavHeader" >
       <AppBar position="static" color="default">
         <Toolbar className="NavHeader-toolbar">
-          <img className="NavHeader-logo" src="./logo.png" width="100" />
+          <img className="NavHeader-logo" src="./logo.png"/>
           <div className={"NavHeader-title" + ( showSearch && !imagePreviewShow ? " NavHeader-title--showSerch" : "")}>
             {APP_NAME}
             <span
