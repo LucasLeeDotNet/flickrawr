@@ -5235,7 +5235,7 @@ fieldset {
 
   .NavHeader-subtitle,
   .NavHeader-subtitle--showSearch,
-  .NavHeader-title--showSerch {
+  .NavHeader-title--showSearch {
 
     display: none;
   }
@@ -5265,7 +5265,7 @@ fieldset {
 
   .NavHeader-subtitle,
   .NavHeader-subtitle--showSearch,
-  .NavHeader-title--showSerch {
+  .NavHeader-title--showSearch {
 
     display: none;
   }
