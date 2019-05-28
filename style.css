@@ -5193,11 +5193,16 @@ fieldset {
   z-index: 10;
 }
 
+.NavHeader-logo {
+
+  width: 6.25rem;
+}
+
 .NavHeader-title {
 
   color: rgb(0, 0, 0, 0.8);
   font-family: "Courier New", Courier, monospace;
-  font-size: 1.8em;
+  font-size: 1.8rem;
   font-weight: bold;
   letter-spacing: 0.0075em;
   line-height: 1.6;
@@ -5236,8 +5241,8 @@ fieldset {
   }
 
   .NavHeader-toolbar {
-    min-height: 76px !important;
-    padding: 10px;
+    min-height: 4.75rem !important;
+    padding: 0.625rem;
   }
 
 }
@@ -5266,8 +5271,8 @@ fieldset {
   }
 
   .NavHeader-toolbar {
-    min-height: 76px !important;
-    padding: 10px;
+    min-height: 4.75rem !important;
+    padding: 0.625rem;
   }
 
 }
@@ -5364,54 +5369,54 @@ fieldset {
   -webkit-flex-flow: row wrap;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  margin: 4px 12px 8px 16px;
-  width: calc(100% - 24px);
+  margin: 0.25rem 0.75rem 05rem 1rem;
+  width: calc(100% - 1.5rem);
 }
 
 .ImagesDisplay-loadingOverlay {
 
-  -webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(0.625rem);
 
-          backdrop-filter: blur(10px);
-  background-color: rgb(0, 0, 0, 0.7);
+          backdrop-filter: blur(0.625rem);
+  background-color: rgb(0, 0, 0, 0.8);
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   height: 100%;
   position: absolute;
-  width: calc(100% - 24px);
+  width: 100%;
   z-index: 9;
 }
 
 .ImagesDisplay-photoContainer {
 
   background-color: #333;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   color: white;
   -webkit-flex: auto;
       -ms-flex: auto;
           flex: auto;
-  height: 250px;
-  margin: 0 8px 8px 0;
-  min-width: 150px;
+  height: 15.625rem;
+  margin: 0 0.5rem 0.5rem 0;
+  min-width: 9.375rem;
   overflow: hidden;
   position: relative;
 }
 
 .ImagesDisplay-photoContainer:nth-child(4n+1) {
-  width: 250px;
+  width: 15.625rem;
 }
 
 .ImagesDisplay-photoContainer:nth-child(4n+1):nth-child(4n+2) {
-  width: 325px;
+  width: 20.3125rem;
 }
 
 .ImagesDisplay-photoContainer:nth-child(4n+1):nth-child(4n+3) {
-  width: 180px;
+  width: 11.25rem;
 }
 
 .ImagesDisplay-photoContainer:nth-child(4n+1):nth-child(4n+4) {
-  width: 380px;
+  width: 23.75rem;
 }
 
 .ImagesDisplay-photoContainer.is-zoomOut {
@@ -5477,7 +5482,7 @@ fieldset {
 
   .ImagesDisplay {
 
-    margin: 10px 12px 8px 16px;
+    margin: 0.625rem 0.75rem 0.5rem 1rem;
   }
 }
 
@@ -5485,7 +5490,7 @@ fieldset {
 
   .ImagesDisplay {
 
-    margin: 10px 12px 8px 16px;
+    margin: 0.625rem 0.75rem 0.5rem 1rem;
   }
 }
 
@@ -5500,7 +5505,7 @@ fieldset {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: calc(100vh - 65px);
+  height: calc(100vh - 4rem);
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -5540,7 +5545,7 @@ fieldset {
 }
 
 .ImagePreview-drawer > div:nth-child(1) {
-  top: 65px;
+  top: 4rem;
 }
 
 .ImagePreview-photo {
@@ -5553,7 +5558,7 @@ fieldset {
 
 .ImagePreview-buttonContainer {
 
-  bottom: 25px;
+  bottom: 1.5625rem;
   color: rgb(0, 0, 0, 0.8);
   font-family: "Courier New", Courier, monospace;
   left: auto;
@@ -5565,43 +5570,45 @@ fieldset {
 .ImagePreview-backNav button,
 .ImagePreview-forwardNav button {
 
+  background-color: rgb(0, 0, 0, 0.3);
+  border-radius: 0;
   color: white;
-  -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
-          filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
+  -webkit-filter: drop-shadow(0.75rem 0.75rem 0.4375rem rgba(0, 0, 0, 0.7));
+          filter: drop-shadow(0.75rem 0.75rem 0.4375rem rgba(0, 0, 0, 0.7));
 }
 
 .ImagePreview-buttonContainer svg {
 
-  font-size: 35px;
+  font-size: 2.1875rem;
 }
 
 .ImagePreview-backNav button svg,
 .ImagePreview-forwardNav button svg {
 
-  font-size: 50px !important;
+  font-size: 3.125rem !important;
 }
 
 @media (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio : 3) {
 
   .ImagePreview-drawer > div:nth-child(1) {
-    top: 70px;
+    top: 4.75rem;
   }
 
   .ImagePreview {
 
-    height: calc(100vh - 70px);
+    height: calc(100vh - 4.75rem);
   }
 }
 
 @media (min-width: 320px) and (max-width: 750px) {
 
   .ImagePreview-drawer > div:nth-child(1) {
-    top: 77px;
+    top: 4.75rem;
   }
 
   .ImagePreview {
 
-    height: calc(100vh - 77px);
+    height: calc(100vh - 4.75rem);
   }
 }
 
@@ -5615,7 +5622,7 @@ fieldset {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-width: 960px;
+  min-width: 60rem;
   padding: 2rem;
 }
 
@@ -5629,7 +5636,7 @@ fieldset {
 
   color: rgb(0, 0, 0, 0.8);
   font-family: "Courier New", Courier, monospace;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   letter-spacing: 0.0075em;
   line-height: 1.6;
   margin-left: 1rem;
@@ -5642,16 +5649,12 @@ fieldset {
   display: -ms-flexbox;
 
   display: flex;
-  height: 67px;
+  height: 4.1875rem;
   padding: 0.5rem;
 }
 
 .Searchbar-clearButton {
   color: #f00 !important;
-}
-
-.Searchbar-paper svg {
-  font-size: 2rem;
 }
 
 /**
@@ -5671,15 +5674,15 @@ fieldset {
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  margin-right: -20px;
-  padding: 5px;
+  margin-right: -1.25rem;
+  padding: 0.3125rem;
 }
 
 .Searchbar-input--forHeader input {
 
   color: rgb(0, 0, 0, 0.8);
   font-family: "Courier New", Courier, monospace;
-  font-size: 1.3em;
+  font-size: 1.5rem;
   letter-spacing: 0.0075em;
   line-height: 1.6;
   margin-left: 1rem;
@@ -5709,10 +5712,10 @@ fieldset {
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
-    height: 90px;
-    margin-top: -5px;
+    height: 5.625rem;
+    margin-top: -0.3125rem;
     min-width: initial;
-    padding: 5px;
+    padding: 0.3125rem;
     width: 100%;
   }
 
@@ -5722,12 +5725,12 @@ fieldset {
   }
 
   .Searchbar-paper {
-    margin: 10px;
+    margin: 0.625rem;
   }
 
   .Searchbar-paper--forHeader {
 
-    padding: 0 5px;
+    padding: 0 0.3125rem;
   }
 
   .Searchbar-paper button,
@@ -5752,10 +5755,10 @@ fieldset {
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
-    height: 90px;
-    margin-top: -5px;
+    height: 5.625rem;
+    margin-top: -0.3125rem;
     min-width: initial;
-    padding: 5px;
+    padding: 0.3125rem;
   }
 
   .Searchbar--forHeader {
@@ -5764,12 +5767,12 @@ fieldset {
   }
 
   .Searchbar-paper {
-    margin: 10px;
+    margin: 0.625rem;
   }
 
   .Searchbar-paper--forHeader {
 
-    padding: 0 5px;
+    padding: 0 0.3125rem;
   }
 
   .Searchbar-paper button,
@@ -5788,18 +5791,19 @@ fieldset {
 }
 
 .SideMenu {
+
   height: 100vh;
 }
 
 .SideMenu > div:first-child {
 
-  top: 66px;
+  top: 4rem;
 }
 
 .SideMenu div[role="document"] {
 
-  height: calc(100vh - 127px);
-  margin-top: 70px;
+  height: calc(100vh - 4rem - 3.125rem);
+  margin-top: 4rem;
 }
 
 .SideMenu-title {
@@ -5821,7 +5825,7 @@ fieldset {
 
 .SideMenu-buttonsContainer {
 
-  bottom: 10px;
+  bottom: 0.625rem;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -5861,8 +5865,8 @@ fieldset {
 
   .SideMenu div[role="document"] {
 
-    height: calc(100vh - 127px);
-    margin-top: 77px;
+    height: calc(100vh - 4.75rem - 3.125rem);
+    margin-top: 4.75rem;
   }
 
   .SideMenu-Content {
@@ -5882,8 +5886,8 @@ fieldset {
 
   .SideMenu > div:first-child {
 
-    height: calc(100vh - 76px);
-    top: 76px;
+    height: calc(100vh - 4.75rem);
+    top: 4.75rem;
   }
 
   .SideMenu-buttonsContainer {
@@ -5891,5 +5895,32 @@ fieldset {
     right: unset;
     width: calc(100vw - 1rem);
   }
+}
+
+:root {
+
+  /* media query related prefix for size are sm, md, lg */
+
+  /*
+    Fonts
+  */
+
+  /* non media query related prefix for size are s, m, l */
+
+  /*
+    Bottom offset to prevent button located at the bottom of the screen
+    becoming inaccessible when natual scrolls goes beyond the container height
+  */
+}
+
+* {
+
+  margin: 0;
+  padding: 0;
+}
+
+html {
+
+  font-size: 16px;
 }
 
