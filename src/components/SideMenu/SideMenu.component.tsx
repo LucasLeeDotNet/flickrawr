@@ -29,7 +29,9 @@ const SideMenu = () => {
 
 
   /**
-   * Handler to close the side menu
+   * Dipatch a state change to close the side menu
+   *
+   * @returns void
    */
   const handleHideSideMenu = (): void => {
       dispatch(
@@ -42,6 +44,9 @@ const SideMenu = () => {
 
   /**
    * Handler to set the contentType
+   *
+   * @param {ChangeEvent<HTMLSelectElement>} event Change event for the select element
+   * @returns void
    */
   const handleContentTypeChange = ( event: ChangeEvent<HTMLSelectElement> ): void => {
     setContentType( event.target.value );
@@ -50,6 +55,9 @@ const SideMenu = () => {
 
   /**
    * Handler to set safeSearch
+   *
+   * @param {ChangeEvent<HTMLSelectElement>} event Change event for the select element
+   * @returns void
    */
   const handleSafeSearchChange = ( event: ChangeEvent<HTMLSelectElement> ): void => {
     setSafeSearch( event.target.value );
@@ -58,8 +66,10 @@ const SideMenu = () => {
 
   /**
    * Handler to save all perfernece
+   *
+   * @returns void
    */
-  const handleSavePreference = () => {
+  const handleSavePreference = (): void => {
     actions.updatePreference( {
       ...search,
       contentType,
@@ -94,9 +104,9 @@ const SideMenu = () => {
             <MenuItem value="2">Moderate</MenuItem>
             <MenuItem value="3">Restricted</MenuItem>
           </Select>
-
-
         </FormControl>
+
+
         {
           /**
            * Content Type Input

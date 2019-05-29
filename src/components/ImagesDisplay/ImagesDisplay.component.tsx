@@ -8,13 +8,13 @@ import { StoreContext } from "../../context/StoreContext";
 import FlickrPhotoModel from "../../models/FlickrPhoto.model";
 
 // Constant
-import { PAGE_SIZE } from "../../constant";
+import { IMAGE_ROW_HEIGHT_OFFSET, PAGE_SIZE } from "../../constant";
 import { typeOptions } from "../../context/reducers";
 
 declare var document: any;
 
 export interface IImagesDisplayModel {
-  sendLastImageRef: ( ref: RefObject<any> ) => void;
+  sendLastImageRef: ( ref: HTMLDivElement ) => void;
 }
 
 const ImagesDisplay = ( props: IImagesDisplayModel ) => {
@@ -35,13 +35,15 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
    */
   useEffect( (): void => {
     if ( document.querySelector( ".App-content" ) && searchElement ) {
-      document.querySelector( ".App-content" ).scrollTo(0, searchElement.offsetTop - (window.innerHeight - 250) );
+      document.querySelector( ".App-content" )
+        .scrollTo(0, searchElement.offsetTop - (window.innerHeight - IMAGE_ROW_HEIGHT_OFFSET) );
     }
   }, [searchElement]);
 
 
   /**
-   * Dispatch for clicking a specific image
+   * Dispatch a state change for previewing a specific image
+   *
    * @param {MouseEvent<HTMLDivElement>} event Mouse click event (unused)
    * @param {number} index index of the selected image
    *
@@ -61,22 +63,29 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
 
   /**
    * Call the setter method for the search Element after retrieving from a ref callback
+   *
+   * @param {HTMLDivElement} element Reference to the html element
+   * @returns void
    */
   const handleLastImageReference = ( element: HTMLDivElement ): void => {
     if ( element ) {
-    setSearchElement( element );
+      setSearchElement( element );
     }
   };
 
 
   /**
    * Send a reference of the last object in the scroll container
-   * to be picked up to, indicate more images should be loaded
+   * to be picked up by the App compomnent, indicate more images should be loaded
+   *
+   * @param {HTMLDivElement} element Reference to the html element
+   * @returns void
    */
-  const setLastImageRef = (element: any): void => {
+  const setLastImageRef = (element: HTMLDivElement ): void => {
     const bottomElement = element;
     sendLastImageRef( bottomElement );
   };
+
 
   return (
     <span>
@@ -106,6 +115,11 @@ const ImagesDisplay = ( props: IImagesDisplayModel ) => {
               </div>
             );
           } )
+        }
+        {
+          /**
+           * Create a reference to the last element, when this is visible load a new page for the same search
+           */
         }
         {
           result.length >= PAGE_SIZE && result.length < total ?

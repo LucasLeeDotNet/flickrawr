@@ -1,5 +1,8 @@
 import FlickrPhotoModel from "./FlickrPhoto.model";
 
+/**
+ * Model used for searching flickr
+ */
 export default class SearchModel {
   /**
    * Specify the last page that was loaded

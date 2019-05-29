@@ -4,7 +4,7 @@
 import DrawerModel from "./Drawer.model";
 import NotificationModel from "./Notification.model";
 import SearchModel from "./Search.model";
-import SideMneuModel from "./SideMenu.model";
+import SideMenuModel from "./SideMenu.model";
 
 export default interface IStateModel {
   drawer: DrawerModel;
@@ -12,5 +12,5 @@ export default interface IStateModel {
   isLoading: boolean;
   notification: NotificationModel;
   search: SearchModel;
-  sideMenu: SideMneuModel;
+  sideMenu: SideMenuModel;
 }

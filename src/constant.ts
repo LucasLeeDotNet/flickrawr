@@ -10,3 +10,5 @@ export const BASIC_JSON_HEADERS = {
   "Content-Type": "application/json",
 };
 export const ACCEPETED_PREFERENCE_LIST = [ "safeSearch", "contentType" ];
+// In px, same as 15.625rem with 16px font-size
+export const IMAGE_ROW_HEIGHT_OFFSET = 250;

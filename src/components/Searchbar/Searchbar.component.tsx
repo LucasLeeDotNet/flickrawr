@@ -1,5 +1,5 @@
 // React
-import React, { RefObject, useContext, useEffect, useState } from "react";
+import React, { ChangeEvent, KeyboardEvent, MouseEvent, useContext, useEffect, useState } from "react";
 
 // State
 import { StoreContext } from "../../context/StoreContext";
@@ -15,6 +15,7 @@ import SearchIcon from "@material-ui/icons/Search";
 // Constant
 import { INPUT_TIMEOUT } from "../../constant";
 import { typeOptions } from "../../context/reducers";
+
 
 export interface ISearchbarModel {
   sendSearchRef?: ( element: HTMLDivElement ) => void;
@@ -57,17 +58,22 @@ const Searchbar = ( props: ISearchbarModel ) => {
 
   /**
    * Clear out the current input text
-   * @param {React.MouseEvent<HTMLElement>} event Event Object
+   *
+   * @param {MouseEvent<HTMLElement>} event Mouse event Object
+   * @returns void
    */
-  const handleClearButtonClick = ( event: React.MouseEvent<HTMLElement>): void => {
+  const handleClearButtonClick = ( event: MouseEvent<HTMLElement>): void => {
     updateSearchText( "" );
   };
 
 
   /**
    * Handler for search input value change
+   *
+   * @param {ChangeEvent<HTMLInputElement>} event Change event Object
+   * @returns void
    */
-  const handleInputChanged = ( event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleInputChanged = ( event: ChangeEvent<HTMLInputElement>): void => {
     clearInterval( inputTimer );
     updateSearchText( event.target.value );
     // Set the timer flag to trigger the side effect to run the set timeout with the latest value in searchText
@@ -80,8 +86,12 @@ const Searchbar = ( props: ISearchbarModel ) => {
 
   /**
    * Handle enter key press to submit search
+   *
+   * @param {KeyboardEvent<HTMLInputElement>} event Keyboard event object
+   * @returns void
    */
-  const handleKeyPress = ( event: React.KeyboardEvent<HTMLInputElement> ): void => {
+  const handleKeyPress = ( event: KeyboardEvent<HTMLInputElement> ): void => {
+      // Submit change when enter pressed and the search term is not empty
       if ( event.key === "Enter" && searchText !== "" ) {
       clearInterval( inputTimer );
       actions.searchFlickr( searchText, true );
@@ -91,8 +101,11 @@ const Searchbar = ( props: ISearchbarModel ) => {
 
   /**
    * Handle search button click
+   *
+   * @returns void
    */
   const handleSearchButtonClick = (): void => {
+    // Make sure the search term is not empty before preforming an action
     if ( searchText !== "" ) {
       clearInterval( inputTimer );
       actions.searchFlickr( searchText, true );
@@ -101,7 +114,9 @@ const Searchbar = ( props: ISearchbarModel ) => {
 
 
   /**
-   * Handle click to open sidemenu
+   * Dispatch a state change to open sidemenu
+   *
+   * @returns void
    */
   const handleSideMenuClick = (): void => {
       dispatch(
@@ -114,6 +129,9 @@ const Searchbar = ( props: ISearchbarModel ) => {
 
   /**
    * Sends the search element reference to the parent callback
+   *
+   * @param {HTtoMLDivElement} element Element reference to the search bar
+   * @returns void
    */
   const setSearchRef = (element: HTMLDivElement): void => {
     if ( typeof sendSearchRef === "function") { sendSearchRef( element ); }
@@ -133,7 +151,6 @@ const Searchbar = ( props: ISearchbarModel ) => {
           placeholder="rawrrrr!"
           onKeyDown={handleKeyPress}
         />
-
         {
           /**
            * Only show the clear button when text is entered

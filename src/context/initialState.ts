@@ -4,7 +4,7 @@ import DrawerModel from "../models/Drawer.model";
 import IStateModel from "../models/IState.model";
 import NotificationModel from "../models/Notification.model";
 import SearchModel from "../models/Search.model";
-import SideMneuModel from "../models/SideMenu.model";
+import SideMenuModel from "../models/SideMenu.model";
 
 const localStoragePreferneces = ACCEPETED_PREFERENCE_LIST.reduce( ( result, item: string ) =>  {
   const localStorageValue = localStorage.getItem( item );
@@ -30,5 +30,5 @@ export const initialState: IStateModel = {
   isLoading: false,
   notification: new NotificationModel(),
   search: { ...newSearch, ...localStoragePreferneces, history: history || newSearch.history},
-  sideMenu: new SideMneuModel(),
+  sideMenu: new SideMenuModel(),
 };
